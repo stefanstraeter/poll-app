@@ -1,0 +1,145 @@
+// ==========================================================================
+// PRIMITIVES
+// ==========================================================================
+
+// Neutral Scale
+$neutral-000: #ffffff;
+$neutral-200: #fefdff;
+$neutral-300: #ededed;
+$neutral-600: #bababa;
+
+// Orange Scale
+$orange-100: #fee9d4;
+$orange-300: #ffcfa1;
+$orange-500: #ffb770;
+
+// Purple Scale
+$purple-100: #fbf5fe;
+$purple-200: #f4e9fb;
+$purple-500: #4f4353;
+$purple-600: #423547;
+$purple-900: #35273a;
+
+// Brown Scale
+$brown-300: #a27367;
+$brown-600: #72524a;
+
+// ==========================================================================
+// TYPOGRAPHY
+// ==========================================================================
+
+$font-family-base: 'Mulish', system-ui, sans-serif;
+$font-family-heading: 'Nerko One', cursive, sans-serif;
+$font-family-label: 'Nokora', sans-serif;
+
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1rem; // 16px
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 1.75rem; // 28px
+$font-size-2xl: 2.5rem; // 40px
+$font-size-3xl: 3.5rem; // 56px
+$font-size-4xl: 5rem; // 80px
+$font-size-5xl: 6.25rem; // 100px
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$color-text-dark: $purple-900;
+$color-text-light: $purple-100;
+$color-text-accent: $orange-300;
+
+// ==========================================================================
+// BORDER RADIUS & SHAPES
+// ==========================================================================
+
+$radius-none: 0;
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 32px;
+
+// Asymmetrical radius
+$card-asymmetric-radius: $radius-lg $radius-xl $radius-lg $radius-lg;
+$input-asymmetric-radius: $radius-md $radius-lg $radius-md $radius-md;
+$progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none;
+
+// ==========================================================================
+// SPACING & LAYOUT
+// ==========================================================================
+
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-xxl: 3rem; // 48px
+
+$content-width: 90rem;
+
+// ==========================================================================
+// COMPONENT
+// ==========================================================================
+
+// Primary Button
+$btn-primary-bg: $orange-300;
+$btn-primary-bg-hover: $orange-500;
+$btn-primary-text: $purple-900;
+
+// Secondary Button
+$btn-secondary-bg: $orange-100;
+$btn-secondary-bg-hover: $orange-300;
+$btn-secondary-text: $neutral-000;
+
+// Tertiary Button
+$btn-tertiary-bg: $purple-900;
+$btn-tertiary-bg-hover: $orange-500;
+$btn-tertiary-text: $neutral-000;
+
+// Filter Button
+$btn-filter-active-bg: $orange-500;
+$btn-filter-past-bg: $orange-100;
+$btn-filter-hover: $orange-300;
+$btn-filter-text: $purple-900;
+
+// Button Dimensions & Varied Radii
+$btn-padding-y: 0.625rem;
+$btn-padding-x: 1.25rem;
+$btn-border-radius-sm: $radius-sm;
+$btn-border-radius-md: $radius-md;
+$btn-border-radius-lg: $radius-lg;
+
+// Cards
+$card-dark-bg: $purple-600;
+$card-dark-hover: $purple-500;
+$card-light-bg: $purple-100;
+$card-light-hover: $purple-200;
+
+// Input Fields
+$input-bg: $neutral-000;
+$input-bg-focus: $orange-100;
+$input-text: $purple-900;
+$input-label: $neutral-000;
+$input-placeholder: $purple-900;
+
+// Badges & Labels
+$badge-bg: $orange-300;
+$badge-bg-hover: $orange-500;
+$badge-text: $purple-900;
+
+// Scrollbars
+$scrollbar-thumb-orange: $orange-500;
+$scrollbar-thumb-neutral: $neutral-600;
+
+// Results & Progress Bars
+$progress-bar-track-bg: $neutral-300;
+$progress-bar-fill-bg: $orange-500;
+
+// Action Icon Buttons (Edit / Delete)
+$btn-action-bg: $purple-900;
+$btn-action-bg-hover: $orange-300;
+$btn-action-icon: $neutral-000;
+$btn-action-icon-hover: $purple-900;
