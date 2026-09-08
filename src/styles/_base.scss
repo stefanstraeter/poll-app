@@ -1,0 +1,8 @@
+@use 'variables' as v;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: v.$bg-default;
+  min-height: 100dvh;
+}
