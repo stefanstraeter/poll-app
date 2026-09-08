@@ -51,6 +51,7 @@ $font-weight-bold: 700;
 $color-text-dark: $purple-900;
 $color-text-light: $purple-100;
 $color-text-accent: $orange-300;
+$color-heading: $orange-500;
 
 // ==========================================================================
 // BORDER RADIUS & SHAPES
@@ -76,13 +77,27 @@ $spacing-sm: 0.5rem; // 8px
 $spacing-md: 1rem; // 16px
 $spacing-lg: 1.5rem; // 24px
 $spacing-xl: 2rem; // 32px
-$spacing-xxl: 3rem; // 48px
+$spacing-2xl: 3rem; // 48px
 
 $content-width: 90rem;
 
 // ==========================================================================
+// BREAKPOINTS
+// ==========================================================================
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+
+// ==========================================================================
 // COMPONENT
 // ==========================================================================
+
+// Backgrounds
+$bg-default: $purple-900;
+$bg-neutral: $neutral-000;
 
 // Primary Button
 $btn-primary-bg: $orange-300;
