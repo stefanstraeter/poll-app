@@ -1,236 +1,35 @@
 @use 'variables' as v;
 
 // ==========================================================================
-// BASE TYPOGRAPHY
+// TYPOGRAPHY
 // ==========================================================================
 
 body {
   font-family: v.$font-family-base;
   font-size: v.$font-size-md;
-  color: v.$color-text-dark;
+  color: v.$color-text-light;
+  background-color: v.$purple-900;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: v.$font-family-heading;
+  font-weight: v.$font-weight-regular;
 }
 
 h1 {
-  font-family: v.$font-family-heading;
   font-size: v.$font-size-5xl;
 }
-
-// ==========================================================================
-// NERKO ONE FONT FACE
-// ==========================================================================
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nerko One';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/nerko-one/nerko-one-v17-latin-regular.woff2') format('woff2');
+h2 {
+  font-size: v.$font-size-2xl;
+}
+h3 {
+  font-size: v.$font-size-xl;
 }
 
-// ==========================================================================
-// NOKORA FONT FACE
-// ==========================================================================
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 100;
-  src: url('/fonts/nokora/nokora-v34-latin-100.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 200;
-  src: url('/fonts/nokora/nokora-v34-latin-200.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/nokora/nokora-v34-latin-300.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/nokora/nokora-v34-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/nokora/nokora-v34-latin-500.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/nokora/nokora-v34-latin-600.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/nokora/nokora-v34-latin-700.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 800;
-  src: url('/fonts/nokora/nokora-v34-latin-800.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nokora';
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/nokora/nokora-v34-latin-900.woff2') format('woff2');
-}
-
-// ==========================================================================
-// MULISH FONT FACE
-// ==========================================================================
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 200;
-  src: url('/fonts/mulish/mulish-v18-latin-200.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 200;
-  src: url('/fonts/mulish/mulish-v18-latin-200italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/mulish/mulish-v18-latin-300.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 300;
-  src: url('/fonts/mulish/mulish-v18-latin-300italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/mulish/mulish-v18-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/fonts/mulish/mulish-v18-latin-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/mulish/mulish-v18-latin-500.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 500;
-  src: url('/fonts/mulish/mulish-v18-latin-500italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/mulish/mulish-v18-latin-600.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 600;
-  src: url('/fonts/mulish/mulish-v18-latin-600italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/mulish/mulish-v18-latin-700.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 700;
-  src: url('/fonts/mulish/mulish-v18-latin-700italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 800;
-  src: url('/fonts/mulish/mulish-v18-latin-800.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 800;
-  src: url('/fonts/mulish/mulish-v18-latin-800italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/mulish/mulish-v18-latin-900.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Mulish';
-  font-style: italic;
-  font-weight: 900;
-  src: url('/fonts/mulish/mulish-v18-latin-900italic.woff2') format('woff2');
+.label-text {
+  font-family: v.$font-family-label;
+  font-size: v.$font-size-sm;
 }
