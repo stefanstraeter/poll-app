@@ -8,7 +8,6 @@ body {
   font-family: v.$font-family-base;
   font-size: v.$font-size-md;
   color: v.$color-text-light;
-  background-color: v.$purple-900;
 }
 
 h1,
@@ -17,6 +16,7 @@ h3,
 .font-heading {
   font-family: v.$font-family-heading;
   font-weight: v.$font-weight-regular;
+  color: v.$color-heading;
 }
 
 h1 {
