@@ -1,0 +1,55 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.hero {
+  @include m.flex($direction: column, $align: flex-start, $gap: v.$spacing-lg);
+  padding: v.$spacing-xl v.$spacing-lg;
+
+  &__title {
+    font-size: v.$font-size-3xl;
+  }
+
+  &__cta {
+    align-self: center;
+  }
+
+  &__illustration {
+    position: relative;
+    width: 100%;
+    max-width: 18rem;
+    align-self: center;
+  }
+
+  &__phone {
+    width: 100%;
+    display: block;
+  }
+
+  &__icon {
+    position: absolute;
+  }
+
+  &__icon--bubble {
+    top: 17%;
+    left: 12%;
+    width: 30%;
+  }
+
+  &__icon--question {
+    top: 5%;
+    right: 15%;
+    width: 15%;
+  }
+
+  &__icon--star {
+    bottom: 25%;
+    left: 8%;
+    width: 18%;
+  }
+
+  &__icon--check {
+    bottom: 10%;
+    right: 0;
+    width: 22%;
+  }
+}
