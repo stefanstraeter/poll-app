@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Theme } from '@core/services/theme';
 
 @Component({
   imports: [],
@@ -7,11 +8,7 @@ import { Component, input } from '@angular/core';
   templateUrl: './header.html',
 })
 export class Header {
-  // Default ist true (für Startseite), lässt sich auf Detailseiten zu false ändern
-  isDarkMode = input<boolean>(true);
+  private theme = inject(Theme);
+
+  isDarkMode = this.theme.isDarkMode;
 }
-
-// Auf der geöffneten Poll Seite dann
-// <app-header [isDarkMode]="false" />
-
-// routerLink="/" hinzufügen!
