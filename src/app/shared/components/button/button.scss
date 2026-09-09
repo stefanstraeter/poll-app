@@ -1,0 +1,55 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+:host {
+  display: inline-block;
+}
+
+.btn {
+  @include m.flex($align: center, $gap: v.$spacing-sm);
+  padding: v.$btn-padding-y v.$btn-padding-x;
+  border: none;
+  border-radius: v.$btn-border-radius-md;
+  font-weight: v.$font-weight-extrabold;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background-color: v.$btn-primary-bg;
+    color: v.$btn-primary-text;
+
+    &:hover:not(:disabled) {
+      background-color: v.$btn-primary-bg-hover;
+    }
+  }
+
+  &--secondary {
+    background-color: v.$btn-secondary-bg;
+    color: v.$btn-secondary-text;
+
+    &:hover:not(:disabled) {
+      background-color: v.$btn-secondary-bg-hover;
+    }
+  }
+
+  &--tertiary {
+    background-color: v.$btn-tertiary-bg;
+    color: v.$btn-tertiary-text;
+
+    &:hover:not(:disabled) {
+      background-color: v.$btn-tertiary-bg-hover;
+    }
+  }
+
+  &--filter {
+    background-color: v.$btn-filter-past-bg;
+    color: v.$btn-filter-text;
+
+    &:hover:not(:disabled) {
+      background-color: v.$btn-filter-hover;
+    }
+  }
+}
