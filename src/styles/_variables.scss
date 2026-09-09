@@ -47,6 +47,7 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
+$font-weight-extrabold: 900;
 
 $color-text-dark: $purple-900;
 $color-text-light: $purple-100;
@@ -96,7 +97,7 @@ $breakpoint-xxl: 1440px;
 // ==========================================================================
 
 // Backgrounds
-$bg-default: $purple-900;
+$bg-dark: $purple-900;
 $bg-neutral: $neutral-000;
 
 // Primary Button
