@@ -1,3 +1,25 @@
 <button type="button" class="btn" [class]="'btn--' + variant()" [disabled]="disabled()">
   <ng-content></ng-content>
 </button>
+
+<!-- 
+[class]="..." – Property Binding auf die class-Eigenschaft
+
+Die eckigen Klammern [...] bedeuten: 
+Das, was in den Anführungszeichen steht, ist kein fester String, sondern wird als Angular-Ausdruck ausgewertet (also wie eine 
+kleine TypeScript-Zeile). Ohne die eckigen Klammern (class="...") wäre der Inhalt einfach nur statischer Text.
+
+'btn--' + variant()
+Das ist simple String-Verkettung (+ verbindet zwei Strings), genauso wie in normalem TypeScript/JavaScript:
+
+'btn--' → ein fester Text-Baustein
+variant() → ruft das Signal auf und gibt seinen aktuellen Wert zurück, z. B. 'primary'
+
+Zusammen ergibt das: 'btn--primary'
+
+
+Kurz zusammengefasst: 
+[class]="'btn--' + variant()" heißt übersetzt: 
+Berechne bei jedem Update den String 'btn--' + aktueller-Wert-von-variant, 
+und füge das als zusätzliche CSS-Klasse zum Element hinzu - neben der bereits fest vergebenen Klasse btn. 
+-->

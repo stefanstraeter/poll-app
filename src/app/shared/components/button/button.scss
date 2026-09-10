@@ -7,10 +7,8 @@
 
 .btn {
   @include m.flex($align: center, $gap: v.$spacing-sm);
-  padding: v.$btn-padding-y v.$btn-padding-x;
   border: none;
   border-radius: v.$btn-border-radius-md;
-  font-weight: v.$font-weight-extrabold;
 
   &:disabled {
     opacity: 0.5;
@@ -20,15 +18,25 @@
   &--primary {
     background-color: v.$btn-primary-bg;
     color: v.$btn-primary-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-sm v.$btn-padding-lg;
 
-    &:hover:not(:disabled) {
+    &:active:not(:disabled) {
       background-color: v.$btn-primary-bg-hover;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-primary-bg-hover;
+      }
     }
   }
 
   &--secondary {
     background-color: v.$btn-secondary-bg;
     color: v.$btn-secondary-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-sm v.$btn-padding-lg;
 
     &:hover:not(:disabled) {
       background-color: v.$btn-secondary-bg-hover;
@@ -38,6 +46,20 @@
   &--tertiary {
     background-color: v.$btn-tertiary-bg;
     color: v.$btn-tertiary-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-sm v.$btn-padding-md;
+    border-radius: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: v.$btn-padding-md;
+      right: v.$btn-padding-md;
+      bottom: 0.3rem;
+      height: 1px;
+      background-color: currentColor;
+    }
 
     &:hover:not(:disabled) {
       background-color: v.$btn-tertiary-bg-hover;
@@ -47,6 +69,8 @@
   &--filter {
     background-color: v.$btn-filter-past-bg;
     color: v.$btn-filter-text;
+    font-weight: v.$font-weight-semibold;
+    padding: v.$btn-padding-xs v.$btn-padding-sm;
 
     &:hover:not(:disabled) {
       background-color: v.$btn-filter-hover;

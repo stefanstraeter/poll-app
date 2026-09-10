@@ -11,6 +11,29 @@
 
   &__cta {
     align-self: center;
+
+    img {
+      width: 1.2rem;
+      transition:
+        width 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      // Kein Hover-fähiges Gerät → Query wird ignoriert
+      img {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      &:hover img {
+        width: 1.2rem;
+        opacity: 1;
+        transform: translateX(4px);
+      }
+    }
   }
 
   &__illustration {
@@ -53,3 +76,10 @@
     width: 22%;
   }
 }
+
+// Warum btn/cta überhaupt in home.scss statt button.scss
+
+// Das <img> wird über <ng-content> von home.html in die Button-Komponente projiziert.
+// Angular gibt projizierten Elementen aber das View-Encapsulation-Scope der Komponente,
+// in der sie ursprünglich stehen (home), nicht der aufnehmenden Komponente (button).
+// Styling in button.scss hätte das <img> also nie erreicht – deswegen musste die Logik nach home.scss, genauer in den &__cta-Block.

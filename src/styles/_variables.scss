@@ -68,6 +68,7 @@ $radius-xl: 32px;
 $card-asymmetric-radius: $radius-lg $radius-xl $radius-lg $radius-lg;
 $input-asymmetric-radius: $radius-md $radius-lg $radius-md $radius-md;
 $progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none;
+$status-badge-asymmetric-radius: $radius-none $radius-md $radius-none $radius-none;
 
 // ==========================================================================
 // SPACING & LAYOUT
@@ -112,7 +113,7 @@ $btn-secondary-text: $neutral-000;
 
 // Tertiary Button
 $btn-tertiary-bg: $purple-900;
-$btn-tertiary-bg-hover: $orange-500;
+$btn-tertiary-bg-hover: $purple-500;
 $btn-tertiary-text: $neutral-000;
 
 // Filter Button
@@ -121,9 +122,17 @@ $btn-filter-past-bg: $orange-100;
 $btn-filter-hover: $orange-300;
 $btn-filter-text: $purple-900;
 
+// Status Badge
+$status-badge-published: $orange-500;
+$status-badge-draft: $orange-300;
+$status-badge-hover: $orange-500;
+
 // Button Dimensions & Varied Radii
-$btn-padding-y: 0.625rem;
-$btn-padding-x: 1.25rem;
+$btn-padding-xs: 0.2rem;
+$btn-padding-sm: 0.6rem;
+$btn-padding-md: 0.8rem;
+$btn-padding-lg: 1.2rem;
+
 $btn-border-radius-sm: $radius-sm;
 $btn-border-radius-md: $radius-md;
 $btn-border-radius-lg: $radius-lg;
