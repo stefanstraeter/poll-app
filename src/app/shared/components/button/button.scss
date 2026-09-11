@@ -6,7 +6,7 @@
 }
 
 .btn {
-  @include m.flex($align: center, $gap: v.$spacing-sm);
+  @include m.flex($align: center, $gap: v.$spacing-xs);
   border: none;
   border-radius: v.$btn-border-radius-md;
 
@@ -36,7 +36,7 @@
     background-color: v.$btn-secondary-bg;
     color: v.$btn-secondary-text;
     font-weight: v.$font-weight-extrabold;
-    padding: v.$btn-padding-sm v.$btn-padding-lg;
+    padding: v.$btn-padding-xs v.$btn-padding-sm;
 
     &:hover:not(:disabled) {
       background-color: v.$btn-secondary-bg-hover;
@@ -70,10 +70,22 @@
     background-color: v.$btn-filter-past-bg;
     color: v.$btn-filter-text;
     font-weight: v.$font-weight-semibold;
-    padding: v.$btn-padding-xs v.$btn-padding-sm;
+    padding: v.$btn-padding-xxs v.$btn-padding-md;
+    border-radius: v.$btn-border-radius-lg;
 
     &:hover:not(:disabled) {
       background-color: v.$btn-filter-hover;
+    }
+  }
+
+  &--icon {
+    padding: v.$btn-padding-md;
+    background-color: v.$btn-action-bg;
+    border-radius: v.$btn-border-radius-sm;
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
+      background-color: v.$btn-action-bg-hover;
     }
   }
 }
