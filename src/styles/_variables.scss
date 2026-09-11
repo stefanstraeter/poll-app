@@ -74,10 +74,11 @@ $status-badge-asymmetric-radius: $radius-none $radius-md $radius-none $radius-no
 // SPACING & LAYOUT
 // ==========================================================================
 
-$spacing-xs: 0.25rem; // 4px
-$spacing-sm: 0.5rem; // 8px
+$spacing-xxs: 0.25rem; // 4px
+$spacing-xs: 0.5rem; // 8px
+$spacing-sm: 0.75rem; // 12px
 $spacing-md: 1rem; // 16px
-$spacing-lg: 1.5rem; // 24px
+$spacing-lg: 1.6rem; // 26px
 $spacing-xl: 2rem; // 32px
 $spacing-2xl: 3rem; // 48px
 
@@ -128,7 +129,8 @@ $status-badge-draft: $orange-300;
 $status-badge-hover: $orange-500;
 
 // Button Dimensions & Varied Radii
-$btn-padding-xs: 0.2rem;
+$btn-padding-xxs: 0.2rem;
+$btn-padding-xs: 0.4rem;
 $btn-padding-sm: 0.6rem;
 $btn-padding-md: 0.8rem;
 $btn-padding-lg: 1.2rem;
