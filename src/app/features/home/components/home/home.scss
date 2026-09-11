@@ -77,7 +77,7 @@
   }
 }
 
-// Warum btn/cta überhaupt in home.scss statt button.scss
+// Warum cta überhaupt in home.scss statt button.scss
 
 // Das <img> wird über <ng-content> von home.html in die Button-Komponente projiziert.
 // Angular gibt projizierten Elementen aber das View-Encapsulation-Scope der Komponente,
