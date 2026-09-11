@@ -7,12 +7,12 @@ import { Component, input } from '@angular/core';
   templateUrl: './button.html',
 })
 export class Button {
-  variant = input<'primary' | 'secondary' | 'tertiary' | 'filter'>('primary');
+  variant = input<'primary' | 'secondary' | 'tertiary' | 'filter' | 'icon'>('primary');
   disabled = input<boolean>(false);
 }
 
 /* 
-variant = input<'primary' | 'secondary' | 'tertiary' | 'filter'>('primary');
+variant = input<'primary' | 'secondary' | 'tertiary' | 'filter' | 'icon'>('primary');
 Das 'primary' am Ende ist wieder der Default-Wert. 
 
 Das heißt:
