@@ -63,9 +63,12 @@ $radius-sm: 6px;
 $radius-md: 12px;
 $radius-lg: 20px;
 $radius-xl: 32px;
+$radius-2xl: 48px;
+$radius-3xl: 64px;
 
 // Asymmetrical radius
-$card-asymmetric-radius: $radius-lg $radius-xl $radius-lg $radius-lg;
+$card-asymmetric-radius: $radius-none $radius-3xl $radius-none $radius-none;
+
 $input-asymmetric-radius: $radius-md $radius-lg $radius-md $radius-md;
 $progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none;
 $status-badge-asymmetric-radius: $radius-none $radius-md $radius-none $radius-none;
@@ -81,6 +84,7 @@ $spacing-md: 1rem; // 16px
 $spacing-lg: 1.6rem; // 26px
 $spacing-xl: 2rem; // 32px
 $spacing-2xl: 3rem; // 48px
+$spacing-3xl: 4rem; // 64px
 
 $content-width: 90rem;
 
