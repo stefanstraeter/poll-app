@@ -1,0 +1,6 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.answer-option {
+  @include m.flex($align: center, $gap: v.$spacing-sm);
+}
