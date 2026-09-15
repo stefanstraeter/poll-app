@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './progress-bar.scss',
   templateUrl: './progress-bar.html',
 })
-export class ProgressBar {}
+export class ProgressBar {
+  percentage = input.required<number>();
+}
