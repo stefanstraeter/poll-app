@@ -1,0 +1,96 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.dropdown {
+  position: relative;
+  width: fit-content;
+
+  &__header {
+    @include m.flex($align: center, $justify: space-between, $gap: v.$spacing-md);
+    padding: v.$btn-padding-xxs v.$btn-padding-sm;
+    background-color: v.$btn-dropdown-bg;
+    color: v.$btn-dropdown-text;
+    border: none;
+    border-radius: v.$btn-border-radius-sm;
+    font-weight: v.$font-weight-bold;
+    width: 100%;
+    transition: background-color 0.2s ease;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: v.$btn-dropdown-bg-hover;
+      }
+    }
+  }
+
+  &__chevron-wrapper {
+    position: relative;
+    width: 0.75rem;
+    height: 0.75rem;
+    display: inline-block;
+    align-self: center;
+
+    .chevron-default,
+    .chevron-hover {
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .chevron-hover {
+      opacity: 0;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .dropdown__header:hover & .chevron-default {
+        opacity: 0;
+      }
+
+      .dropdown__header:hover & .chevron-hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    background: none;
+    border: none;
+    z-index: 5;
+    cursor: default;
+    padding: 0;
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    margin-top: v.$spacing-xxs;
+    left: 0;
+    right: 0;
+    background-color: v.$dropdown-list-bg;
+    border-radius: v.$btn-border-radius-sm;
+    list-style: none;
+    padding: v.$spacing-sm 0;
+    z-index: 10;
+  }
+
+  &__option {
+    width: 100%;
+    font-size: v.$font-size-sm;
+    padding: v.$spacing-xxs v.$spacing-sm;
+    background: none;
+    border: none;
+    text-align: left;
+    color: v.$input-text;
+    cursor: pointer;
+
+    &:hover {
+      background-color: v.$purple-200;
+    }
+
+    &--selected {
+      background-color: v.$purple-200;
+    }
+  }
+}
