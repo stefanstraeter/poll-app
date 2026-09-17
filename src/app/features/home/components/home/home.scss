@@ -2,16 +2,44 @@
 @use 'mixins' as m;
 
 .hero {
-  @include m.flex($direction: column, $align: flex-start, $gap: v.$spacing-lg);
-  padding: v.$spacing-xl v.$spacing-lg;
+  display: grid;
+  gap: v.$spacing-lg;
+  padding: v.$spacing-xl v.$spacing-md;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'title'
+    'illustration'
+    'description'
+    'cta';
+
+  @media (min-width: v.$breakpoint-lg) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: v.$spacing-2xl;
+    row-gap: v.$spacing-lg;
+    align-items: center;
+    grid-template-areas:
+      'title illustration'
+      'description illustration'
+      'cta illustration';
+  }
 
   &__title {
-    font-size: v.$font-size-3xl;
+    grid-area: title;
+    font-size: v.$font-size-hero-title;
     line-height: 1;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-self: start;
+    }
   }
 
   &__cta {
-    align-self: center;
+    grid-area: cta;
+    justify-self: center;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-self: start;
+    }
 
     img {
       width: 1.2rem;
@@ -38,10 +66,20 @@
   }
 
   &__illustration {
+    grid-area: illustration;
     position: relative;
     width: 100%;
     max-width: 18rem;
-    align-self: center;
+    justify-self: center;
+
+    @media (min-width: v.$breakpoint-lg) {
+      max-width: 24rem;
+      justify-self: center;
+    }
+  }
+
+  &__description {
+    grid-area: description;
   }
 
   &__phone {
@@ -49,32 +87,53 @@
     display: block;
   }
 
+  @keyframes float-in-out {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(var(--float-x), var(--float-y));
+    }
+  }
+
   &__icon {
     position: absolute;
+    animation: float-in-out 3s ease-in-out infinite;
   }
 
   &__icon--bubble {
     top: 17%;
     left: 12%;
     width: 30%;
+    --float-x: 8px;
+    --float-y: 8px;
   }
 
   &__icon--question {
     top: 5%;
     right: 15%;
     width: 15%;
+    --float-x: -8px;
+    --float-y: 8px;
   }
 
   &__icon--star {
     bottom: 25%;
     left: 8%;
     width: 18%;
+    --float-x: 8px;
+    --float-y: -8px;
+    animation-delay: 0.5s;
   }
 
   &__icon--check {
     bottom: 10%;
     right: 0;
     width: 22%;
+    --float-x: -8px;
+    --float-y: -8px;
+    animation-delay: 1s;
   }
 }
 
