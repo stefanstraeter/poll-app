@@ -29,6 +29,7 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -38,6 +39,7 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
+.prettierrc
 
 # System files
 .DS_Store
