@@ -73,8 +73,14 @@
     padding: v.$btn-padding-xxs v.$btn-padding-md;
     border-radius: v.$btn-border-radius-lg;
 
-    &:hover:not(:disabled) {
-      background-color: v.$btn-filter-hover;
+    &.is-active {
+      background-color: v.$btn-filter-active-bg;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-filter-hover;
+      }
     }
   }
 
