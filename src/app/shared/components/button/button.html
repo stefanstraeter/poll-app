@@ -1,4 +1,4 @@
-<button type="button" class="btn" [class]="'btn--' + variant()" [disabled]="disabled()">
+<button type="button" class="btn" [class]="'btn--' + variant()" [class.is-active]="active()" [disabled]="disabled()">
   <ng-content></ng-content>
 </button>
 
@@ -22,4 +22,32 @@ Kurz zusammengefasst:
 [class]="'btn--' + variant()" heißt übersetzt: 
 Berechne bei jedem Update den String 'btn--' + aktueller-Wert-von-variant, 
 und füge das als zusätzliche CSS-Klasse zum Element hinzu - neben der bereits fest vergebenen Klasse btn. 
--->
+
+
+Ein <button> innerhalb eines <form> hat standardmäßig type="submit" (auch ohne dass du's hinschreibst!), 
+was bedeutet: Klickst du drauf, versucht der Browser automatisch, das umgebende Formular abzusenden.
+
+type="button" verhindert das explizit – es sagt dem Browser: „Dieser Button soll kein automatisches Submit-Verhalten haben, 
+auch wenn er in einem <form> steckt." Das ist besonders wichtig für deine Button-Komponente, weil sie ja überall eingesetzt wird 
+(auch außerhalb von Formularen, z. B. im Hero) – ohne type="button" könntest du später unerwartete Formular-Submits auslösen, 
+sobald der Button zufällig in einem <form> landet (z. B. bei "Add answer" in CreatePoll).
+
+class="btn" 
+Statischer, fest hartcodierter Klassenname, der immer da ist, unabhängig vom Zustand. Trägt die Basis-Styles (Padding, Border-Radius etc.).
+
+[class]="'btn--' + variant()" 
+Property Binding - Kleine Präzisierung: Es bindet nicht "die verschiedenen Varianten" im Plural, 
+sondern einen einzigen berechneten String (z. B. "btn--primary"), der sich automatisch ändert, sobald sich variant() ändert.
+
+[class.is-active]="active()" 
+Das ist eine spezielle Schreibweise des Property Bindings, extra für eine einzelne CSS-Klasse. active() liefert true/false, 
+und Angular setzt die Klasse is-active entsprechend automatisch dazu oder weg.
+
+„dadurch ändert sich über SCSS der Zustand" – genau richtig: 
+Die Klassen selbst ändern optisch nichts, sie sind nur Marker im DOM. Erst deine SCSS-Regeln (&--filter, &.is-active) 
+reagieren auf diese Marker und wenden tatsächliche Styles an.
+
+disabled() mit Klammern = „lies den aktuellen Wert aus dem Signal aus" – das gilt überall, wo du mit Signals arbeitest (Templates, Methoden, 
+egal wo), nicht nur speziell hier im [disabled]-Binding.  Es ist keine Angular-Template-Besonderheit, sondern die normale Art, ein Signal zu benutzen.
+
+  -->
