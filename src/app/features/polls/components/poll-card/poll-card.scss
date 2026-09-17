@@ -17,6 +17,7 @@
     font-family: v.$font-family-base;
     font-weight: v.$font-weight-bold;
     font-size: v.$font-size-lg;
+    @include m.line-clamp(2);
   }
 
   &__badge {
