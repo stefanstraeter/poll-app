@@ -8,6 +8,7 @@ import { Component, input } from '@angular/core';
 })
 export class Button {
   variant = input<'primary' | 'secondary' | 'tertiary' | 'filter' | 'icon'>('primary');
+  active = input<boolean>(false);
   disabled = input<boolean>(false);
 }
 
@@ -41,5 +42,8 @@ Nur DANN disabled, wenn du's explizit angibst
 
 Oder dynamisch, z.B. während ein Formular lädt
 <app-button variant="primary" [disabled]="isLoading()">New survey</app-button>
+
+
+
 
 */
