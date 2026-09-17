@@ -3,7 +3,6 @@
 
 .app-header {
   width: 100%;
-  padding: v.$spacing-xl v.$spacing-lg;
   background-color: var(--color-bg);
   transition: background-color 0.2s ease;
 
@@ -11,6 +10,7 @@
     @include m.flex($align: center, $justify: space-between);
     max-width: v.$content-width;
     margin: 0 auto;
+    padding: v.$spacing-xl v.$spacing-md;
   }
 
   .logo img {
