@@ -1,8 +1,6 @@
-import { Injectable, signal, effect } from '@angular/core';
+import { signal, effect, Service } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class Theme {
   isDarkMode = signal<boolean>(true);
 
