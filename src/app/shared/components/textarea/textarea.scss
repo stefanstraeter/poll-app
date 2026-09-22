@@ -1,0 +1,23 @@
+@use "variables" as v;
+
+.textarea-field {
+  width: 100%;
+  min-height: 6rem;
+  resize: vertical;
+  padding: v.$spacing-sm v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
+  }
+}
