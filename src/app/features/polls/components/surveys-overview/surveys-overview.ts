@@ -29,7 +29,11 @@ export class SurveysOverview {
       title: "Let's Plan the Next Team Event Together",
       endsIn: '1 Day',
     },
-    { category: 'Health & Wellness', title: 'Fit & wellness survey!', endsIn: '2 Days' },
+    {
+      category: 'Health & Wellness',
+      title: 'Fit & wellness survey!',
+      endsIn: '2 Days',
+    },
     {
       category: 'Gaming & Entertainment',
       title: 'Gaming habits and favorite games!',
@@ -43,8 +47,16 @@ export class SurveysOverview {
       title: 'Let`s Plan the Next Team Event Together',
       endsIn: '1 Day',
     },
-    { category: 'Gaming', title: 'Gaming habits and favorite games!', endsIn: '3 Day' },
-    { category: 'Gaming', title: 'Gaming habits and favorite games!', endsIn: '3 Day' },
+    {
+      category: 'Gaming',
+      title: 'Gaming habits and favorite games!',
+      endsIn: '3 Day',
+    },
+    {
+      category: 'Gaming',
+      title: 'Gaming habits and favorite games!',
+      endsIn: '3 Day',
+    },
     {
       category: 'Healthy Lifestyle',
       title: 'Healthier future: Fit & wellness survey!',
@@ -57,7 +69,7 @@ export class SurveysOverview {
     },
     {
       category: 'Team activities',
-      title: 'Let’s Plan the Next Team Event Together',
+      title: 'Let`s Plan the Next Team Event Together',
       endsIn: '1 Day',
     },
   ];
