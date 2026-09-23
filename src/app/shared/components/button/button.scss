@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 :host {
   display: inline-block;
@@ -52,7 +52,7 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: v.$btn-padding-md;
       right: v.$btn-padding-md;
@@ -63,6 +63,18 @@
 
     &:hover:not(:disabled) {
       background-color: v.$btn-tertiary-bg-hover;
+    }
+  }
+
+  &--neutral {
+    background-color: v.$btn-neutral-bg;
+    color: v.$btn-neutral-text;
+    font-weight: v.$font-weight-extrabold;
+    padding: v.$btn-padding-xs v.$btn-padding-md;
+    border-radius: v.$btn-border-radius-md;
+
+    &:hover:not(:disabled) {
+      background-color: v.$btn-neutral-bg-hover;
     }
   }
 

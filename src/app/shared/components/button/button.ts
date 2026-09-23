@@ -7,7 +7,9 @@ import { Component, input } from '@angular/core';
   templateUrl: './button.html',
 })
 export class Button {
-  variant = input<'primary' | 'secondary' | 'tertiary' | 'filter' | 'icon'>('primary');
+  variant = input<
+    'primary' | 'secondary' | 'tertiary' | 'filter' | 'neutral' | 'icon'
+  >('primary');
   active = input<boolean>(false);
   disabled = input<boolean>(false);
 }

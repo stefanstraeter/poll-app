@@ -1,4 +1,10 @@
-<button type="button" class="btn" [class]="'btn--' + variant()" [class.is-active]="active()" [disabled]="disabled()">
+<button
+  type="button"
+  class="btn"
+  [class]="'btn--' + variant()"
+  [class.is-active]="active()"
+  [disabled]="disabled()"
+>
   <ng-content></ng-content>
 </button>
 
