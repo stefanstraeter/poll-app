@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .hero {
   display: grid;
@@ -7,10 +7,10 @@
   padding: v.$spacing-xl v.$spacing-md;
   grid-template-columns: 1fr;
   grid-template-areas:
-    'title'
-    'illustration'
-    'description'
-    'cta';
+    "title"
+    "illustration"
+    "description"
+    "cta";
 
   @media (min-width: v.$breakpoint-lg) {
     grid-template-columns: 1fr 1fr;
@@ -18,9 +18,9 @@
     row-gap: v.$spacing-lg;
     align-items: center;
     grid-template-areas:
-      'title illustration'
-      'description illustration'
-      'cta illustration';
+      "title illustration"
+      "description illustration"
+      "cta illustration";
   }
 
   &__title {
