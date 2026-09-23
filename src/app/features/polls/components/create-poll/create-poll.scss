@@ -1,0 +1,188 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.create-poll {
+  padding: v.$spacing-xl v.$spacing-md;
+
+  &__topbar {
+    @include m.flex($justify: space-between, $align: center);
+    margin-bottom: v.$spacing-md;
+  }
+
+  &__title {
+    font-family: v.$font-family-heading;
+    color: v.$color-heading;
+    font-size: v.$font-size-2xl;
+    margin-bottom: v.$spacing-lg;
+  }
+
+  &__card {
+    display: grid;
+    gap: v.$spacing-lg;
+    padding: v.$spacing-lg v.$spacing-md;
+    background-color: v.$card-dark-bg;
+    border-radius: v.$card-asymmetric-radius;
+    color: v.$color-text-light;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'name'
+      'category'
+      'enddate'
+      'describing'
+      'questions'
+      'addQuestion'
+      'publish';
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: v.$spacing-2xl;
+      grid-template-areas:
+        'name describing'
+        'enddate describing'
+        'category describing'
+        'questions addQuestion'
+        'publish publish';
+    }
+  }
+
+  &__field {
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
+
+    &--name {
+      grid-area: name;
+    }
+
+    &--category {
+      grid-area: category;
+    }
+
+    &--enddate {
+      grid-area: enddate;
+    }
+
+    &--describing {
+      grid-area: describing;
+    }
+  }
+
+  &__label {
+    font-weight: v.$font-weight-semibold;
+  }
+
+  &__input-row {
+    @include m.flex($align: center, $gap: v.$spacing-xs);
+
+    app-input-field,
+    app-textarea {
+      flex: 1;
+    }
+  }
+
+  &__questions {
+    grid-area: questions;
+    @include m.flex($direction: column, $gap: v.$spacing-lg);
+  }
+
+  &__question {
+    @include m.flex($direction: column, $gap: v.$spacing-sm);
+  }
+
+  &__question-header {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__answers-header {
+    @include m.flex($justify: space-between, $align: center);
+  }
+
+  &__multiple {
+    @include m.flex($align: center, $gap: v.$spacing-xxs);
+    font-size: v.$font-size-sm;
+  }
+
+  &__answers {
+    list-style: none;
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
+  }
+
+  &__answer-row {
+    @include m.flex($align: center, $gap: v.$spacing-xs);
+
+    app-input-field {
+      flex: 1;
+    }
+  }
+
+  &__answer-letter {
+    min-width: 1.2rem;
+    font-weight: v.$font-weight-semibold;
+  }
+
+  &__publish {
+    grid-area: publish;
+    justify-self: center;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-self: end;
+    }
+  }
+}
+
+// Delete-Icon-Hover, identisch zum Muster aus der tipsandtricks.md.
+// Muss hier stehen (nicht in button.scss), weil die <img>-Tags per
+// ng-content aus create-poll.html projiziert werden und dadurch das
+// View-Encapsulation-Scope von create-poll behalten.
+.delete-btn {
+  position: relative;
+
+  .icon-default,
+  .icon-hover {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transition: opacity 0.5s ease;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .icon-hover {
+    opacity: 0;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .icon-default {
+      opacity: 0;
+    }
+
+    &:hover .icon-hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Gleiches Prinzip wie der add-question-btn/cancel-btn aus der tipsandtricks.md.
+.add-question-btn {
+  grid-area: addQuestion;
+  align-self: start;
+
+  img {
+    // SVG-Inhalt sitzt im eigenen viewBox nicht exakt mittig, daher kleiner Nudge nach unten
+    margin-top: 0.15rem;
+  }
+}
+
+.cancel-btn {
+  img {
+    width: 0.8rem;
+  }
+
+  &__label {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__label {
+      display: inline;
+    }
+  }
+}
