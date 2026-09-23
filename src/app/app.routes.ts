@@ -6,5 +6,5 @@ import { PollDetail } from '@features/polls/components/poll-detail/poll-detail';
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'poll/:id', component: PollDetail },
-  { path: 'create', component: CreatePoll },
+  { path: 'create-survey', component: CreatePoll },
 ];
