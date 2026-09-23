@@ -28,9 +28,9 @@ $brown-600: #72524a;
 // TYPOGRAPHY
 // ==========================================================================
 
-$font-family-base: 'Mulish', system-ui, sans-serif;
-$font-family-heading: 'Nerko One', cursive, sans-serif;
-$font-family-label: 'Nokora', sans-serif;
+$font-family-base: "Mulish", system-ui, sans-serif;
+$font-family-heading: "Nerko One", cursive, sans-serif;
+$font-family-label: "Nokora", sans-serif;
 
 $font-size-xs: 0.75rem; // 12px
 $font-size-sm: 0.875rem; // 14px
@@ -73,7 +73,8 @@ $radius-3xl: 64px;
 $card-asymmetric-radius: $radius-none $radius-3xl $radius-none $radius-none;
 $progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none;
 $input-asymmetric-radius: $radius-sm $radius-lg $radius-xs $radius-sm;
-$status-badge-asymmetric-radius: $radius-none $radius-md $radius-none $radius-none;
+$status-badge-asymmetric-radius: $radius-none $radius-md $radius-none
+  $radius-none;
 
 // ==========================================================================
 // SPACING & LAYOUT
@@ -128,6 +129,11 @@ $btn-filter-active-bg: $orange-500;
 $btn-filter-past-bg: $orange-100;
 $btn-filter-hover: $orange-300;
 $btn-filter-text: $purple-900;
+
+// Neutral Button
+$btn-neutral-bg: $brown-600;
+$btn-neutral-bg-hover: $brown-300;
+$btn-neutral-text: $neutral-000;
 
 // Dropdown Button
 $btn-dropdown-bg: $purple-900;
