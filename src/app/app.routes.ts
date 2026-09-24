@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { Home } from '@features/home/components/home/home';
-import { CreatePoll } from '@features/polls/components/create-poll/create-poll';
-import { PollDetail } from '@features/polls/components/poll-detail/poll-detail';
+import { CreateSurvey } from '@features/polls/components/create-survey/create-survey';
+import { SurveyDetail } from '@features/polls/components/survey-detail/survey-detail';
 
 export const routes: Routes = [
   { path: '', component: Home },
-  { path: 'poll/:id', component: PollDetail },
-  { path: 'create-survey', component: CreatePoll },
+  { path: 'survey/:id', component: SurveyDetail },
+  { path: 'create-survey', component: CreateSurvey },
 ];
