@@ -2,11 +2,11 @@ import { Component, input } from '@angular/core';
 
 @Component({
   imports: [],
-  selector: 'app-poll-card',
-  styleUrl: './poll-card.scss',
-  templateUrl: './poll-card.html',
+  selector: 'app-survey-card',
+  styleUrl: './survey-card.scss',
+  templateUrl: './survey-card.html',
 })
-export class PollCard {
+export class SurveyCard {
   category = input.required<string>();
   title = input.required<string>();
   endsIn = input.required<string>();

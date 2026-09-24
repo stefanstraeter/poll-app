@@ -1,7 +1,7 @@
 @use 'variables' as v;
 @use 'mixins' as m;
 
-.poll-card {
+.survey-card {
   @include m.flex($direction: column, $justify: space-between, $gap: v.$spacing-xs);
   padding: v.$spacing-md;
   transition: background-color 0.2s ease;
@@ -38,8 +38,8 @@
     min-height: 12rem;
     padding: v.$spacing-xl v.$spacing-xl;
 
-    .poll-card__category,
-    .poll-card__title {
+    .survey-card__category,
+    .survey-card__title {
       color: v.$color-text-dark;
     }
 
@@ -54,15 +54,15 @@
     background-color: v.$card-dark-bg;
     border-radius: v.$card-asymmetric-radius;
 
-    .poll-card__category {
+    .survey-card__category {
       color: v.$color-text-accent;
     }
 
-    .poll-card__title {
+    .survey-card__title {
       color: v.$purple-100;
     }
 
-    .poll-card__badge {
+    .survey-card__badge {
       align-self: flex-end;
     }
 
