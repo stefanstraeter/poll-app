@@ -34,11 +34,11 @@ function createEmptyQuestion(): Question {
 
 @Component({
   imports: [StatusBadge, Button, InputField, Textarea, Dropdown, Checkbox],
-  selector: 'app-create-poll',
-  styleUrl: './create-poll.scss',
-  templateUrl: './create-poll.html',
+  selector: 'app-create-survey',
+  styleUrl: './create-survey.scss',
+  templateUrl: './create-survey.html',
 })
-export class CreatePoll implements OnInit, OnDestroy {
+export class CreateSurvey implements OnInit, OnDestroy {
   private theme = inject(Theme);
 
   surveyName = signal('');

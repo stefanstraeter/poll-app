@@ -1,7 +1,7 @@
 @use 'variables' as v;
 @use 'mixins' as m;
 
-.create-poll {
+.create-survey {
   padding: v.$spacing-xl v.$spacing-md;
 
   &__topbar {
@@ -130,8 +130,8 @@
 
 // Delete-Icon-Hover, identisch zum Muster aus der tipsandtricks.md.
 // Muss hier stehen (nicht in button.scss), weil die <img>-Tags per
-// ng-content aus create-poll.html projiziert werden und dadurch das
-// View-Encapsulation-Scope von create-poll behalten.
+// ng-content aus create-survey.html projiziert werden und dadurch das
+// View-Encapsulation-Scope von create-survey behalten.
 .delete-btn {
   position: relative;
 
