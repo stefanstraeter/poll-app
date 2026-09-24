@@ -1,10 +1,10 @@
-@use 'variables' as v;
+@use "variables" as v;
 
 .checkbox {
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 1.25px solid v.$checkbox-border;
-  border-radius: v.$radius-sm;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid v.$checkbox-border;
+  border-radius: v.$radius-xs;
   background-color: v.$checkbox-bg;
   padding: 0;
   display: flex;
@@ -14,14 +14,12 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover:not(.checkbox--checked) {
-      background-color: v.$checkbox-bg-hover;
-      border: 1px solid v.$neutral-300;
+      background-color: v.$orange-300;
     }
   }
 
   &--checked {
-    background-color: v.$badge-bg;
-    border-color: v.$checkbox-border-hover;
+    background-color: v.$checkbox-bg-checked;
   }
 
   img {
