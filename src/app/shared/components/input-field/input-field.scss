@@ -1,8 +1,8 @@
-@use 'variables' as v;
+@use "variables" as v;
 
 .input-field {
   width: 100%;
-  padding: v.$spacing-sm v.$spacing-md;
+  padding: v.$spacing-xs v.$spacing-md;
   border: none;
   border-radius: v.$input-asymmetric-radius;
   background-color: v.$input-bg;
