@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { PollCard } from '../poll-card/poll-card';
+import { SurveyCard } from '../survey-card/survey-card';
 import { Button } from '@shared/components/button/button';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 
@@ -10,7 +10,7 @@ interface Poll {
 }
 
 @Component({
-  imports: [PollCard, Button, Dropdown],
+  imports: [SurveyCard, Button, Dropdown],
   selector: 'app-surveys-overview',
   styleUrl: './surveys-overview.scss',
   templateUrl: './surveys-overview.html',

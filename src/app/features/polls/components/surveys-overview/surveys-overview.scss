@@ -28,13 +28,13 @@
       background-color: v.$scrollbar-thumb-orange; // Chrome/Safari
     }
 
-    app-poll-card {
+    app-survey-card {
       flex: 0 0 90%;
       scroll-snap-align: start;
     }
 
     @media (min-width: v.$breakpoint-lg) {
-      app-poll-card {
+      app-survey-card {
         flex: 1;
       }
     }
