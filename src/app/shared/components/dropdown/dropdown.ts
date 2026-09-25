@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 
 export interface DropdownOption {
   value: string;
@@ -18,6 +18,10 @@ export class Dropdown {
   selectedChange = output<string>();
 
   isOpen = signal(false);
+
+  selectedLabel = computed(
+    () => this.options().find((option) => option.value === this.selected())?.label ?? '',
+  );
 
   toggleOpen(): void {
     this.isOpen.set(!this.isOpen());
