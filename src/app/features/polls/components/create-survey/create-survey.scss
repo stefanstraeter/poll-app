@@ -36,8 +36,7 @@
       "category"
       "enddate"
       "describing"
-      "questions"
-      "addQuestion";
+      "questions";
 
     @media (min-width: v.$breakpoint-lg) {
       grid-template-columns: repeat(4, 1fr);
@@ -46,7 +45,7 @@
       grid-template-areas:
         "name name describing describing"
         "enddate category describing describing"
-        "questions questions addQuestion addQuestion";
+        "questions questions questions questions";
     }
   }
 
@@ -89,6 +88,18 @@
   &__questions {
     grid-area: questions;
     @include m.flex($direction: column, $gap: v.$spacing-2xl);
+
+    // Fragen und der "Add next question"-Button laufen als Grid-Items in zwei
+    // Spalten: 1 | Button → 1 2 / Button → 1 2 / 3 Button → …
+    // Der Spaltenabstand ist so gewählt, dass die zweite Spalte bündig mit
+    // "Describing text" oben beginnt (Spaltenabstand oben + margin-left dort).
+    @media (min-width: v.$breakpoint-lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: calc(#{v.$spacing-md} + 2 * #{v.$spacing-xl});
+      row-gap: v.$spacing-xl;
+      align-items: start;
+    }
   }
 
   &__question {
@@ -172,12 +183,8 @@
   }
 
   &__add-question {
-    grid-area: addQuestion;
     align-self: start;
-
-    @media (min-width: v.$breakpoint-lg) {
-      margin-left: v.$spacing-xl;
-    }
+    justify-self: start;
 
     img {
       // SVG-Inhalt sitzt im eigenen viewBox nicht exakt mittig, daher kleiner Nudge nach unten
