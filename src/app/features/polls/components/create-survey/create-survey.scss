@@ -7,7 +7,8 @@
   padding: v.$spacing-xl v.$spacing-md;
 
   @media (min-width: v.$breakpoint-lg) {
-    padding: v.$spacing-2xl v.$spacing-3xl;
+    padding: v.$spacing-xl v.$spacing-2xl;
+    margin: 0 v.$spacing-md;
   }
 
   &__topbar {
@@ -87,7 +88,7 @@
 
   &__questions {
     grid-area: questions;
-    @include m.flex($direction: column, $gap: v.$spacing-lg);
+    @include m.flex($direction: column, $gap: v.$spacing-2xl);
   }
 
   &__question {
@@ -102,11 +103,12 @@
     font-family: v.$font-family-base;
     color: v.$color-text-light;
     font-size: v.$font-size-md;
-    font-weight: v.$font-weight-medium;
+    font-weight: v.$font-weight-bold;
   }
 
   &__answers-header {
     @include m.flex($justify: space-between, $align: center);
+    margin-top: v.$spacing-md;
   }
 
   &__multiple {
