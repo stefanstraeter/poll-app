@@ -10,14 +10,18 @@
 
   &__selected {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 0;
     min-width: 100%;
     white-space: nowrap;
-    margin-top: v.$spacing-xs;
-    padding: 0 v.$btn-padding-sm;
+    min-height: 1.5em;
     font-size: v.$font-size-md;
     color: v.$color-text-accent;
+
+    @media (min-width: v.$breakpoint-lg) {
+      justify-content: flex-end;
+      padding: 0 v.$btn-padding-sm;
+    }
   }
 
   &__header {
@@ -26,9 +30,10 @@
       $justify: space-between,
       $gap: v.$spacing-md
     );
-    padding: v.$btn-padding-xxs v.$btn-padding-sm;
+
     background-color: v.$btn-dropdown-bg;
     color: v.$btn-dropdown-text;
+    padding: v.$btn-padding-xxs 0;
     border: none;
     border-radius: v.$btn-border-radius-sm;
     font-weight: v.$font-weight-bold;
