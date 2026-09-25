@@ -1,12 +1,31 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .dropdown {
-  position: relative;
   width: fit-content;
 
+  &__control {
+    position: relative;
+  }
+
+  &__selected {
+    display: flex;
+    justify-content: flex-end;
+    width: 0;
+    min-width: 100%;
+    white-space: nowrap;
+    margin-top: v.$spacing-xs;
+    padding: 0 v.$btn-padding-sm;
+    font-size: v.$font-size-md;
+    color: v.$color-text-accent;
+  }
+
   &__header {
-    @include m.flex($align: center, $justify: space-between, $gap: v.$spacing-md);
+    @include m.flex(
+      $align: center,
+      $justify: space-between,
+      $gap: v.$spacing-md
+    );
     padding: v.$btn-padding-xxs v.$btn-padding-sm;
     background-color: v.$btn-dropdown-bg;
     color: v.$btn-dropdown-text;
