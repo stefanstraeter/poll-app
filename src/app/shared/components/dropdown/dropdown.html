@@ -1,36 +1,42 @@
 <div class="dropdown">
-  <button type="button" class="dropdown__header" (click)="toggleOpen()">
-    {{ label() }}
-    <span class="dropdown__chevron-wrapper">
-      <img
-        [src]="isOpen() ? 'icons/chevron-up-white.svg' : 'icons/chevron-down-white.svg'"
-        alt=""
-        class="chevron-default"
-      />
-      <img
-        [src]="isOpen() ? 'icons/chevron-up-orange.svg' : 'icons/chevron-down-orange.svg'"
-        alt=""
-        class="chevron-hover"
-      />
-    </span>
-  </button>
+  <div class="dropdown__control">
+    <button type="button" class="dropdown__header" (click)="toggleOpen()">
+      {{ label() }}
+      <span class="dropdown__chevron-wrapper">
+        <img
+          [src]="isOpen() ? 'icons/chevron-up-white.svg' : 'icons/chevron-down-white.svg'"
+          alt=""
+          class="chevron-default"
+        />
+        <img
+          [src]="isOpen() ? 'icons/chevron-up-orange.svg' : 'icons/chevron-down-orange.svg'"
+          alt=""
+          class="chevron-hover"
+        />
+      </span>
+    </button>
 
-  @if (isOpen()) {
-    <button type="button" class="dropdown__backdrop" (click)="closeDropdown()"></button>
+    @if (isOpen()) {
+      <button type="button" class="dropdown__backdrop" (click)="closeDropdown()"></button>
 
-    <ul class="dropdown__list">
-      @for (option of options(); track option.value) {
-        <li>
-          <button
-            type="button"
-            class="dropdown__option"
-            [class.dropdown__option--selected]="option.value === selected()"
-            (click)="selectOption(option.value)"
-          >
-            {{ option.label }}
-          </button>
-        </li>
-      }
-    </ul>
+      <ul class="dropdown__list">
+        @for (option of options(); track option.value) {
+          <li>
+            <button
+              type="button"
+              class="dropdown__option"
+              [class.dropdown__option--selected]="option.value === selected()"
+              (click)="selectOption(option.value)"
+            >
+              {{ option.label }}
+            </button>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+
+  @if (selectedLabel()) {
+    <span class="dropdown__selected">{{ selectedLabel() }}</span>
   }
 </div>
