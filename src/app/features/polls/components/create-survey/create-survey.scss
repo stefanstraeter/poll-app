@@ -39,14 +39,13 @@
       "addQuestion";
 
     @media (min-width: v.$breakpoint-lg) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       padding: v.$spacing-xl v.$spacing-xl;
-      column-gap: v.$spacing-2xl;
+      column-gap: v.$spacing-md;
       grid-template-areas:
-        "name describing"
-        "enddate describing"
-        "category describing"
-        "questions addQuestion";
+        "name name describing describing"
+        "enddate category describing describing"
+        "questions questions addQuestion addQuestion";
     }
   }
 
@@ -59,6 +58,10 @@
 
     &--category {
       grid-area: category;
+
+      @media (min-width: v.$breakpoint-lg) {
+        align-items: flex-end;
+      }
     }
 
     &--enddate {
@@ -67,6 +70,10 @@
 
     &--describing {
       grid-area: describing;
+
+      @media (min-width: v.$breakpoint-lg) {
+        margin-left: v.$spacing-xl;
+      }
     }
   }
 
@@ -165,6 +172,10 @@
   &__add-question {
     grid-area: addQuestion;
     align-self: start;
+
+    @media (min-width: v.$breakpoint-lg) {
+      margin-left: v.$spacing-xl;
+    }
 
     img {
       // SVG-Inhalt sitzt im eigenen viewBox nicht exakt mittig, daher kleiner Nudge nach unten
