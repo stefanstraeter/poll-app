@@ -2,8 +2,9 @@
 
 .textarea-field {
   width: 100%;
-  min-height: 6rem;
-  resize: vertical;
+  height: 6rem;
+  resize: none;
+  overflow-y: auto;
   padding: v.$spacing-sm v.$spacing-md;
   border: none;
   border-radius: v.$input-asymmetric-radius;
@@ -11,6 +12,13 @@
   color: v.$input-text;
   font-family: v.$font-family-base;
   font-size: v.$font-size-md;
+  scrollbar-color: v.$scrollbar-thumb-orange transparent;
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: v.$scrollbar-thumb-orange;
+  }
 
   &::placeholder {
     color: v.$input-placeholder;
