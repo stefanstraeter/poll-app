@@ -11,6 +11,7 @@
   &__selected {
     display: flex;
     justify-content: flex-start;
+    padding: 0 v.$btn-padding-md;
     width: 0;
     min-width: 100%;
     white-space: nowrap;
@@ -33,7 +34,7 @@
 
     background-color: v.$btn-dropdown-bg;
     color: v.$btn-dropdown-text;
-    padding: v.$btn-padding-xxs 0;
+    padding: v.$btn-padding-xxs v.$btn-padding-md;
     border: none;
     border-radius: v.$btn-border-radius-sm;
     font-weight: v.$font-weight-bold;
@@ -43,36 +44,23 @@
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         background-color: v.$btn-dropdown-bg-hover;
+
+        .dropdown__chevron {
+          color: v.$btn-dropdown-text-accent;
+        }
       }
     }
   }
 
-  &__chevron-wrapper {
-    position: relative;
-    width: 0.75rem;
-    height: 0.75rem;
-    display: inline-block;
+  &__chevron {
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
     align-self: center;
+    transition: color 0.2s ease;
 
-    .chevron-default,
-    .chevron-hover {
-      position: absolute;
-      inset: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .chevron-hover {
-      opacity: 0;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .dropdown__header:hover & .chevron-default {
-        opacity: 0;
-      }
-
-      .dropdown__header:hover & .chevron-hover {
-        opacity: 1;
-      }
+    &--open {
+      color: v.$btn-dropdown-text-accent;
     }
   }
 
