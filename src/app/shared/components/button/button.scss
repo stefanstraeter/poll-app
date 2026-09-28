@@ -96,9 +96,9 @@
   }
 
   &--icon {
-    padding: v.$btn-padding-md;
+    padding: v.$btn-padding-xxs;
     background-color: v.$btn-action-bg;
-    border-radius: v.$btn-border-radius-sm;
+    border-radius: v.$btn-border-radius-xs;
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
