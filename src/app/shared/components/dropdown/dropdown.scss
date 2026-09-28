@@ -11,7 +11,7 @@
   &__selected {
     display: flex;
     justify-content: flex-start;
-    padding: 0 v.$btn-padding-md;
+    padding: v.$btn-padding-sm;
     width: 0;
     min-width: 100%;
     white-space: nowrap;
@@ -21,7 +21,6 @@
 
     @media (min-width: v.$breakpoint-lg) {
       justify-content: flex-end;
-      padding: 0 v.$btn-padding-sm;
     }
   }
 
