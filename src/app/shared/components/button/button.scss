@@ -38,8 +38,10 @@
     font-weight: v.$font-weight-extrabold;
     padding: v.$btn-padding-xs v.$btn-padding-sm;
 
-    &:hover:not(:disabled) {
-      background-color: v.$btn-secondary-bg-hover;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-secondary-bg-hover;
+      }
     }
   }
 
@@ -47,22 +49,26 @@
     background-color: v.$btn-tertiary-bg;
     color: v.$btn-tertiary-text;
     font-weight: v.$font-weight-medium;
-    padding: v.$btn-padding-sm v.$btn-padding-md 0 v.$btn-padding-md;
+    padding: v.$btn-padding-xs v.$btn-padding-xs 0 v.$btn-padding-xs;
     border-radius: 0;
     position: relative;
+    border-inline: v.$btn-padding-xxs solid transparent;
+    background-clip: padding-box;
 
     &::after {
       content: "";
       position: absolute;
-      left: v.$btn-padding-md;
-      right: v.$btn-padding-md;
-      bottom: 0;
+      left: 0;
+      right: 0;
+      bottom: -1px;
       height: 1px;
       background-color: currentColor;
     }
 
-    &:hover:not(:disabled) {
-      background-color: v.$btn-tertiary-bg-hover;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-tertiary-bg-hover;
+      }
     }
   }
 
@@ -70,10 +76,14 @@
     background-color: v.$btn-neutral-bg;
     color: v.$btn-neutral-text;
     font-weight: v.$font-weight-extrabold;
-    padding: v.$btn-padding-xxs v.$btn-padding-md;
+    padding: v.$btn-padding-xs;
 
-    &:hover:not(:disabled) {
-      background-color: v.$btn-neutral-bg-hover;
+    @media (hover: hover) and (pointer: fine) {
+      padding: v.$btn-padding-xs v.$btn-padding-md;
+
+      &:hover:not(:disabled) {
+        background-color: v.$btn-neutral-bg-hover;
+      }
     }
   }
 
@@ -100,9 +110,14 @@
     background-color: v.$btn-action-bg;
     border-radius: v.$btn-border-radius-xs;
 
-    &:hover:not(:disabled),
     &:active:not(:disabled) {
       background-color: v.$btn-action-bg-hover;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not(:disabled) {
+        background-color: v.$btn-action-bg-hover;
+      }
     }
   }
 }
