@@ -13,7 +13,6 @@
 
   &__topbar {
     @include m.flex($justify: space-between, $align: center);
-    margin-bottom: v.$spacing-md;
   }
 
   &__title {
