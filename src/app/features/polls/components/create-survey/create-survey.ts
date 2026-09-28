@@ -19,6 +19,8 @@ interface Question {
   answers: Answer[];
 }
 
+const MAX_ANSWERS = 8;
+
 function createEmptyAnswer(): Answer {
   return { id: crypto.randomUUID(), text: '' };
 }
@@ -99,11 +101,15 @@ export class CreateSurvey implements OnInit, OnDestroy {
   addAnswer(questionId: string): void {
     this.questions.update((currentQuestions) =>
       currentQuestions.map((question) =>
-        question.id === questionId
+        question.id === questionId && question.answers.length < MAX_ANSWERS
           ? { ...question, answers: [...question.answers, createEmptyAnswer()] }
           : question,
       ),
     );
+  }
+
+  hasReachedAnswerLimit(question: Question): boolean {
+    return question.answers.length >= MAX_ANSWERS;
   }
 
   removeAnswer(questionId: string, answerId: string): void {

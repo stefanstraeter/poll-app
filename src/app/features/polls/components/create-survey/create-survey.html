@@ -171,6 +171,9 @@
           }
         </ul>
 
+        @if (hasReachedAnswerLimit(question)) {
+        <span class="create-survey__answer-limit">You can add up to 8 answers.</span>
+        } @else {
         <app-button
           variant="tertiary"
           class="create-survey__add-answer"
@@ -188,6 +191,7 @@
             />
           </svg>
         </app-button>
+        }
       </div>
       }
 

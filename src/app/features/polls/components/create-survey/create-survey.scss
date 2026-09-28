@@ -122,6 +122,12 @@
     font-size: v.$font-size-xs;
   }
 
+  &__answer-limit {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-accent;
+  }
+
   &__answers {
     list-style: none;
     @include m.flex($direction: column, $gap: v.$spacing-xs);
