@@ -186,7 +186,6 @@
     justify-self: start;
 
     img {
-      // SVG-Inhalt sitzt im eigenen viewBox nicht exakt mittig, daher kleiner Nudge nach unten
       margin-top: 0.15rem;
     }
   }
@@ -202,34 +201,16 @@
   }
 }
 
-// Delete-Icon-Hover, identisch zum Muster aus der tipsandtricks.md.
-// Muss hier stehen (nicht in button.scss), weil die <img>-Tags per
-// ng-content aus create-survey.html projiziert werden und dadurch das
-// View-Encapsulation-Scope von create-survey behalten.
 .delete-btn {
-  position: relative;
-
-  .icon-default,
-  .icon-hover {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    transition: opacity 0.5s ease;
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .icon-hover {
-    opacity: 0;
+  svg {
+    width: 1.2rem;
+    color: v.$btn-action-icon;
+    transition: color 0.2s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    &:hover .icon-default {
-      opacity: 0;
-    }
-
-    &:hover .icon-hover {
-      opacity: 1;
+    &:hover svg {
+      color: v.$btn-action-icon-hover;
     }
   }
 }
