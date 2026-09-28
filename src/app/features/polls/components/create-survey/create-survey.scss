@@ -88,10 +88,6 @@
     grid-area: questions;
     @include m.flex($direction: column, $gap: v.$spacing-2xl);
 
-    // Fragen und der "Add next question"-Button laufen als Grid-Items in zwei
-    // Spalten: 1 | Button → 1 2 / Button → 1 2 / 3 Button → …
-    // Der Spaltenabstand ist so gewählt, dass die zweite Spalte bündig mit
-    // "Describing text" oben beginnt (Spaltenabstand oben + margin-left dort).
     @media (min-width: v.$breakpoint-lg) {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -168,8 +164,14 @@
   }
 
   &__cancel {
-    img {
+    svg {
       width: 0.8rem;
+    }
+  }
+
+  &__add-answer {
+    svg {
+      width: 1rem;
     }
   }
 
@@ -185,8 +187,8 @@
     align-self: start;
     justify-self: start;
 
-    img {
-      margin-top: 0.15rem;
+    svg {
+      width: 1rem;
     }
   }
 
