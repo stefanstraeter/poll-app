@@ -1,43 +1,43 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
-import { InputField } from '@shared/components/input-field/input-field';
-import { Textarea } from '@shared/components/textarea/textarea';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { Theme } from '@core/services/theme';
 import { SURVEY_CATEGORIES } from '@features/surveys/constants/survey-categories';
-import { Answer, Question } from '@features/surveys/interfaces/question';
 import { Survey } from '@features/surveys/interfaces/survey';
 import { Surveys } from '@features/surveys/services/surveys';
 
 const MAX_ANSWERS = 8;
 
-function createEmptyAnswer(): Answer {
-  return { id: crypto.randomUUID(), text: '' };
+type QuestionFormGroup = FormGroup<{
+  text: FormControl<string>;
+  allowMultiple: FormControl<boolean>;
+  answers: FormArray<FormControl<string>>;
+}>;
+
+function createAnswerControl(): FormControl<string> {
+  return new FormControl('', { nonNullable: true });
 }
 
-function createEmptyQuestion(): Question {
-  return {
-    id: crypto.randomUUID(),
-    text: '',
-    allowMultiple: false,
-    answers: [createEmptyAnswer(), createEmptyAnswer()],
-  };
+function createQuestionGroup(): QuestionFormGroup {
+  return new FormGroup({
+    text: new FormControl('', { nonNullable: true }),
+    allowMultiple: new FormControl(false, { nonNullable: true }),
+    answers: new FormArray([createAnswerControl(), createAnswerControl()]),
+  });
 }
 
 @Component({
-  imports: [
-    StatusBadge,
-    Button,
-    InputField,
-    Textarea,
-    Dropdown,
-    Checkbox,
-    ReactiveFormsModule,
-  ],
+  imports: [StatusBadge, Button, Dropdown, Checkbox, ReactiveFormsModule],
   selector: 'app-create-survey',
   styleUrl: './create-survey.scss',
   templateUrl: './create-survey.html',
@@ -47,17 +47,19 @@ export class CreateSurvey implements OnInit, OnDestroy {
   private surveysService = inject(Surveys);
   private router = inject(Router);
 
-  // Pilot: einziges Feld, das schon auf Reactive Forms umgestellt ist.
-  titleControl = new FormControl('', {
-    nonNullable: true,
-    validators: [Validators.required],
+  surveyForm = new FormGroup({
+    title: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    endsIn: new FormControl('', { nonNullable: true }),
+    describingText: new FormControl('', { nonNullable: true }),
+    // Dropdown hat kein natives Element zum Binden, deshalb kein
+    // formControlName im Template - stattdessen wird dieser Control
+    // manuell über [selected]/(selectedChange) gelesen/geschrieben.
+    category: new FormControl('', { nonNullable: true }),
+    questions: new FormArray([createQuestionGroup()]),
   });
-
-  endDate = signal('');
-  describingText = signal('');
-  selectedCategory = signal('');
-
-  questions = signal<Question[]>([createEmptyQuestion()]);
 
   categoryOptions: DropdownOption[] = SURVEY_CATEGORIES;
 
@@ -70,78 +72,26 @@ export class CreateSurvey implements OnInit, OnDestroy {
   }
 
   addQuestion(): void {
-    this.questions.update((currentQuestions) => [
-      ...currentQuestions,
-      createEmptyQuestion(),
-    ]);
+    this.surveyForm.controls.questions.push(createQuestionGroup());
   }
 
-  removeQuestion(questionId: string): void {
-    this.questions.update((currentQuestions) =>
-      currentQuestions.filter((question) => question.id !== questionId),
-    );
+  removeQuestion(questionIndex: number): void {
+    this.surveyForm.controls.questions.removeAt(questionIndex);
   }
 
-  updateQuestionText(questionId: string, text: string): void {
-    this.questions.update((currentQuestions) =>
-      currentQuestions.map((question) =>
-        question.id === questionId ? { ...question, text } : question,
-      ),
-    );
+  addAnswer(questionIndex: number): void {
+    const answers = this.surveyForm.controls.questions.at(questionIndex).controls.answers;
+    if (answers.length < MAX_ANSWERS) {
+      answers.push(createAnswerControl());
+    }
   }
 
-  toggleAllowMultiple(questionId: string, value: boolean): void {
-    this.questions.update((currentQuestions) =>
-      currentQuestions.map((question) =>
-        question.id === questionId
-          ? { ...question, allowMultiple: value }
-          : question,
-      ),
-    );
+  removeAnswer(questionIndex: number, answerIndex: number): void {
+    this.surveyForm.controls.questions.at(questionIndex).controls.answers.removeAt(answerIndex);
   }
 
-  addAnswer(questionId: string): void {
-    this.questions.update((currentQuestions) =>
-      currentQuestions.map((question) =>
-        question.id === questionId && question.answers.length < MAX_ANSWERS
-          ? { ...question, answers: [...question.answers, createEmptyAnswer()] }
-          : question,
-      ),
-    );
-  }
-
-  hasReachedAnswerLimit(question: Question): boolean {
-    return question.answers.length >= MAX_ANSWERS;
-  }
-
-  removeAnswer(questionId: string, answerId: string): void {
-    this.questions.update((currentQuestions) =>
-      currentQuestions.map((question) =>
-        question.id === questionId
-          ? {
-              ...question,
-              answers: question.answers.filter(
-                (answer) => answer.id !== answerId,
-              ),
-            }
-          : question,
-      ),
-    );
-  }
-
-  updateAnswerText(questionId: string, answerId: string, text: string): void {
-    this.questions.update((currentQuestions) =>
-      currentQuestions.map((question) =>
-        question.id === questionId
-          ? {
-              ...question,
-              answers: question.answers.map((answer) =>
-                answer.id === answerId ? { ...answer, text } : answer,
-              ),
-            }
-          : question,
-      ),
-    );
+  hasReachedAnswerLimit(questionGroup: QuestionFormGroup): boolean {
+    return questionGroup.controls.answers.length >= MAX_ANSWERS;
   }
 
   answerLetter(index: number): string {
@@ -149,18 +99,26 @@ export class CreateSurvey implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (this.titleControl.invalid) {
-      this.titleControl.markAllAsTouched();
+    if (this.surveyForm.invalid) {
+      this.surveyForm.markAllAsTouched();
       return;
     }
 
     const survey: Survey = {
       id: crypto.randomUUID(),
-      title: this.titleControl.value,
-      category: this.selectedCategory(),
-      endsIn: this.endDate(),
-      describingText: this.describingText(),
-      questions: this.questions(),
+      title: this.surveyForm.controls.title.value,
+      category: this.surveyForm.controls.category.value,
+      endsIn: this.surveyForm.controls.endsIn.value,
+      describingText: this.surveyForm.controls.describingText.value,
+      questions: this.surveyForm.controls.questions.controls.map((questionGroup) => ({
+        id: crypto.randomUUID(),
+        text: questionGroup.controls.text.value,
+        allowMultiple: questionGroup.controls.allowMultiple.value,
+        answers: questionGroup.controls.answers.controls.map((answerControl) => ({
+          id: crypto.randomUUID(),
+          text: answerControl.value,
+        })),
+      })),
     };
 
     this.surveysService.addSurvey(survey);
