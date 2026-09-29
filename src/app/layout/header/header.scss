@@ -4,7 +4,6 @@
 .app-header {
   width: 100%;
   background-color: var(--color-bg);
-  transition: background-color 0.2s ease;
 
   .header-container {
     @include m.flex($align: center, $justify: space-between);
