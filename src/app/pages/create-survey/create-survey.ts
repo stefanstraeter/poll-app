@@ -8,18 +8,7 @@ import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { Theme } from '@core/services/theme';
 import { SURVEY_CATEGORIES } from '@features/surveys/constants/survey-categories';
-
-interface Answer {
-  id: string;
-  text: string;
-}
-
-interface Question {
-  id: string;
-  text: string;
-  allowMultiple: boolean;
-  answers: Answer[];
-}
+import { Answer, Question } from '@features/surveys/interfaces/question';
 
 const MAX_ANSWERS = 8;
 
