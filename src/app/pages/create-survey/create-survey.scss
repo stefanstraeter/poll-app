@@ -241,6 +241,36 @@
   }
 }
 
+// Gleicher Grund wie bei .input-field oben: View Encapsulation teilt
+// textarea.scss nicht über Komponentengrenzen hinweg.
+.textarea-field {
+  width: 100%;
+  height: 6rem;
+  resize: none;
+  overflow-y: auto;
+  padding: v.$spacing-sm v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+  scrollbar-color: v.$scrollbar-thumb-orange transparent;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: v.$scrollbar-thumb-orange;
+  }
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
+  }
+}
+
 .delete-btn {
   svg {
     width: 1.2rem;
