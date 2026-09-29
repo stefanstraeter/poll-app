@@ -1,4 +1,5 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
 import { InputField } from '@shared/components/input-field/input-field';
@@ -35,7 +36,15 @@ function createEmptyQuestion(): Question {
 }
 
 @Component({
-  imports: [StatusBadge, Button, InputField, Textarea, Dropdown, Checkbox],
+  imports: [
+    StatusBadge,
+    Button,
+    InputField,
+    Textarea,
+    Dropdown,
+    Checkbox,
+    ReactiveFormsModule,
+  ],
   selector: 'app-create-survey',
   styleUrl: './create-survey.scss',
   templateUrl: './create-survey.html',
@@ -43,7 +52,12 @@ function createEmptyQuestion(): Question {
 export class CreateSurvey implements OnInit, OnDestroy {
   private theme = inject(Theme);
 
-  surveyName = signal('');
+  // Pilot: einziges Feld, das schon auf Reactive Forms umgestellt ist.
+  titleControl = new FormControl('', {
+    nonNullable: true,
+    validators: [Validators.required],
+  });
+
   endDate = signal('');
   describingText = signal('');
   selectedCategory = signal('');

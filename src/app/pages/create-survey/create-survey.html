@@ -32,11 +32,10 @@
           </svg>
         </app-button>
       </div>
-      <app-input-field
-        placeholder=""
-        [value]="surveyName()"
-        (valueChange)="surveyName.set($event)"
-      />
+      <input type="text" class="input-field" placeholder="" [formControl]="titleControl" />
+      @if (titleControl.invalid && titleControl.touched) {
+      <span class="create-survey__error">Survey name is required.</span>
+      }
     </div>
 
     <div class="create-survey__field create-survey__field--category">

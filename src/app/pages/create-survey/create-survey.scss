@@ -128,6 +128,14 @@
     color: v.$color-text-accent;
   }
 
+  // Noch keine eigene Fehlerfarbe im Variablen-System, deshalb vorerst
+  // dieselbe Akzentfarbe wie die anderen Hinweistexte.
+  &__error {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-accent;
+  }
+
   &__answers {
     list-style: none;
     @include m.flex($direction: column, $gap: v.$spacing-xs);
@@ -206,6 +214,30 @@
     @media (min-width: v.$breakpoint-lg) {
       margin-inline: auto 0;
     }
+  }
+}
+
+// Temporär, nur für den Reactive-Forms-Testlauf bei "Survey name": Kopie der
+// Styles aus input-field.scss, weil View Encapsulation diese Styles nicht
+// über Komponentengrenzen hinweg teilt. Fällt weg, sobald InputField selbst
+// FormControls unterstützt.
+.input-field {
+  width: 100%;
+  padding: v.$spacing-xs v.$spacing-md;
+  border: none;
+  border-radius: v.$input-asymmetric-radius;
+  background-color: v.$input-bg;
+  color: v.$input-text;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-md;
+
+  &::placeholder {
+    color: v.$input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: v.$input-bg-focus;
   }
 }
 
