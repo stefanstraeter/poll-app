@@ -1,5 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
 import { InputField } from '@shared/components/input-field/input-field';
@@ -9,6 +10,8 @@ import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { Theme } from '@core/services/theme';
 import { SURVEY_CATEGORIES } from '@features/surveys/constants/survey-categories';
 import { Answer, Question } from '@features/surveys/interfaces/question';
+import { Survey } from '@features/surveys/interfaces/survey';
+import { Surveys } from '@features/surveys/services/surveys';
 
 const MAX_ANSWERS = 8;
 
@@ -41,6 +44,8 @@ function createEmptyQuestion(): Question {
 })
 export class CreateSurvey implements OnInit, OnDestroy {
   private theme = inject(Theme);
+  private surveysService = inject(Surveys);
+  private router = inject(Router);
 
   // Pilot: einziges Feld, das schon auf Reactive Forms umgestellt ist.
   titleControl = new FormControl('', {
@@ -141,5 +146,24 @@ export class CreateSurvey implements OnInit, OnDestroy {
 
   answerLetter(index: number): string {
     return String.fromCharCode(65 + index); // 65 = 'A' im Zeichencode
+  }
+
+  onSubmit(): void {
+    if (this.titleControl.invalid) {
+      this.titleControl.markAllAsTouched();
+      return;
+    }
+
+    const survey: Survey = {
+      id: crypto.randomUUID(),
+      title: this.titleControl.value,
+      category: this.selectedCategory(),
+      endsIn: this.endDate(),
+      describingText: this.describingText(),
+      questions: this.questions(),
+    };
+
+    this.surveysService.addSurvey(survey);
+    this.router.navigate(['/']);
   }
 }
