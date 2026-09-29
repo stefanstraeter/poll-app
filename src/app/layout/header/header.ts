@@ -10,6 +10,5 @@ import { Theme } from '@core/services/theme';
 })
 export class Header {
   private theme = inject(Theme);
-
   isDarkMode = this.theme.isDarkMode;
 }
