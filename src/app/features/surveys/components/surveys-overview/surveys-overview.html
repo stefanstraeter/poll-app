@@ -3,12 +3,12 @@
 
   <h3 class="surveys-overview__subtitle">Ending soon surveys</h3>
   <div class="surveys-overview__highlight-row">
-    @for (poll of endingSoonPolls; track poll.title) {
+    @for (survey of endingSoonSurveys; track survey.title) {
     <app-survey-card
       variant="highlight"
-      [category]="poll.category"
-      [title]="poll.title"
-      [endsIn]="poll.endsIn"
+      [category]="survey.category"
+      [title]="survey.title"
+      [endsIn]="survey.endsIn"
     />
     }
   </div>
@@ -40,13 +40,13 @@
   </div>
 
   <div class="surveys-overview__list">
-    <!-- später zu track poll.id wechseln-->
-    @for (poll of allPolls; track $index) {
+    <!-- später zu track survey.id wechseln-->
+    @for (survey of allSurveys; track $index) {
     <app-survey-card
       variant="list"
-      [category]="poll.category"
-      [title]="poll.title"
-      [endsIn]="poll.endsIn"
+      [category]="survey.category"
+      [title]="survey.title"
+      [endsIn]="survey.endsIn"
     />
     }
   </div>
