@@ -7,6 +7,7 @@ import { Textarea } from '@shared/components/textarea/textarea';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { Theme } from '@core/services/theme';
+import { SURVEY_CATEGORIES } from '@features/surveys/constants/survey-categories';
 
 interface Answer {
   id: string;
@@ -64,14 +65,7 @@ export class CreateSurvey implements OnInit, OnDestroy {
 
   questions = signal<Question[]>([createEmptyQuestion()]);
 
-  categoryOptions: DropdownOption[] = [
-    { value: 'team', label: 'Team Activities' },
-    { value: 'health', label: 'Health & Wellness' },
-    { value: 'gaming', label: 'Gaming & Entertainment' },
-    { value: 'education', label: 'Education & Learning' },
-    { value: 'lifestyle', label: 'Lifestyle & Preferences' },
-    { value: 'tech', label: 'Technology & Innovation' },
-  ];
+  categoryOptions: DropdownOption[] = SURVEY_CATEGORIES;
 
   ngOnInit(): void {
     this.theme.setDarkMode(false);
