@@ -32,7 +32,12 @@
           </svg>
         </app-button>
       </div>
-      <input type="text" class="input-field" placeholder="" [formControl]="titleControl" />
+      <input
+        type="text"
+        class="input-field"
+        placeholder=""
+        [formControl]="titleControl"
+      />
       @if (titleControl.invalid && titleControl.touched) {
       <span class="create-survey__error">Survey name is required.</span>
       }
@@ -171,7 +176,9 @@
         </ul>
 
         @if (hasReachedAnswerLimit(question)) {
-        <span class="create-survey__answer-limit">You can add up to 8 answers.</span>
+        <span class="create-survey__answer-limit"
+          >You can add up to 8 answers.</span
+        >
         } @else {
         <app-button
           variant="tertiary"
@@ -209,7 +216,11 @@
       </app-button>
     </div>
   </div>
-  <app-button variant="primary" class="create-survey__publish">
+  <app-button
+    variant="primary"
+    class="create-survey__publish"
+    (click)="onSubmit()"
+  >
     Publish <img src="icons/btn-check.svg" alt="" />
   </app-button>
 </section>
