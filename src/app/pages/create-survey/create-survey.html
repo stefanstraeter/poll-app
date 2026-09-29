@@ -15,7 +15,11 @@
 
   <h1 class="create-survey__title">Create new survey</h1>
 
-  <div class="create-survey__card">
+  <form
+    class="create-survey__card"
+    [formGroup]="surveyForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="create-survey__field create-survey__field--name">
       <div class="create-survey__field-header">
         <span class="create-survey__label">Survey name</span>
@@ -36,9 +40,9 @@
         type="text"
         class="input-field"
         placeholder=""
-        [formControl]="titleControl"
+        formControlName="title"
       />
-      @if (titleControl.invalid && titleControl.touched) {
+      @if (surveyForm.controls.title.invalid && surveyForm.controls.title.touched) {
       <span class="create-survey__error">Survey name is required.</span>
       }
     </div>
@@ -47,8 +51,8 @@
       <app-dropdown
         label="Choose category"
         [options]="categoryOptions"
-        [selected]="selectedCategory()"
-        (selectedChange)="selectedCategory.set($event)"
+        [selected]="surveyForm.controls.category.value"
+        (selectedChange)="surveyForm.controls.category.setValue($event)"
       />
     </div>
 
@@ -68,10 +72,11 @@
           </svg>
         </app-button>
       </div>
-      <app-input-field
+      <input
+        type="text"
+        class="input-field"
         placeholder="DD.MM.YYYY"
-        [value]="endDate()"
-        (valueChange)="endDate.set($event)"
+        formControlName="endsIn"
       />
     </div>
 
@@ -91,17 +96,16 @@
           </svg>
         </app-button>
       </div>
-      <app-textarea
+      <textarea
+        class="textarea-field"
         placeholder=""
-        [value]="describingText()"
-        (valueChange)="describingText.set($event)"
-      />
+        formControlName="describingText"
+      ></textarea>
     </div>
 
     <div class="create-survey__questions">
-      @for (question of questions(); track question.id; let questionIndex =
-      $index) {
-      <div class="create-survey__question">
+      @for (questionGroup of surveyForm.controls.questions.controls; track questionGroup; let questionIndex = $index) {
+      <div class="create-survey__question" [formGroup]="questionGroup">
         <div class="create-survey__question-header">
           <h3 class="create-survey__question-headline">
             {{ questionIndex + 1 }}. Question
@@ -109,7 +113,7 @@
           <app-button
             variant="icon"
             class="delete-btn"
-            (click)="removeQuestion(question.id)"
+            (click)="removeQuestion(questionIndex)"
           >
             <svg
               viewBox="0 0 26 26"
@@ -124,26 +128,26 @@
           </app-button>
         </div>
 
-        <app-input-field
+        <input
+          type="text"
+          class="input-field"
           placeholder=""
-          [value]="question.text"
-          (valueChange)="updateQuestionText(question.id, $event)"
+          formControlName="text"
         />
 
         <div class="create-survey__answers-header">
           <span>Answers</span>
           <div class="create-survey__multiple">
             <app-checkbox
-              [checked]="question.allowMultiple"
-              (toggled)="toggleAllowMultiple(question.id, $event)"
+              [checked]="questionGroup.controls.allowMultiple.value"
+              (toggled)="questionGroup.controls.allowMultiple.setValue($event)"
             />
             <span>Allow multiple answers.</span>
           </div>
         </div>
 
         <ul class="create-survey__answers">
-          @for (answer of question.answers; track answer.id; let answerIndex =
-          $index) {
+          @for (answerControl of questionGroup.controls.answers.controls; track answerControl; let answerIndex = $index) {
           <li class="create-survey__answer-row">
             <div class="create-survey__answer-header">
               <span class="create-survey__answer-letter"
@@ -152,7 +156,7 @@
               <app-button
                 variant="icon"
                 class="delete-btn"
-                (click)="removeAnswer(question.id, answer.id)"
+                (click)="removeAnswer(questionIndex, answerIndex)"
               >
                 <svg
                   viewBox="0 0 26 26"
@@ -166,16 +170,17 @@
                 </svg>
               </app-button>
             </div>
-            <app-input-field
+            <input
+              type="text"
+              class="input-field"
               placeholder=""
-              [value]="answer.text"
-              (valueChange)="updateAnswerText(question.id, answer.id, $event)"
+              [formControl]="answerControl"
             />
           </li>
           }
         </ul>
 
-        @if (hasReachedAnswerLimit(question)) {
+        @if (hasReachedAnswerLimit(questionGroup)) {
         <span class="create-survey__answer-limit"
           >You can add up to 8 answers.</span
         >
@@ -183,7 +188,7 @@
         <app-button
           variant="tertiary"
           class="create-survey__add-answer"
-          (click)="addAnswer(question.id)"
+          (click)="addAnswer(questionIndex)"
         >
           Add answer
           <svg
@@ -215,7 +220,7 @@
         </svg>
       </app-button>
     </div>
-  </div>
+  </form>
   <app-button
     variant="primary"
     class="create-survey__publish"
