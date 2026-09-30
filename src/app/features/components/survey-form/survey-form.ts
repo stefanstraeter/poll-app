@@ -30,7 +30,10 @@ export class SurveyForm {
     }),
     endsIn: new FormControl('', { nonNullable: true }),
     describingText: new FormControl('', { nonNullable: true }),
-    category: new FormControl('', { nonNullable: true }),
+    category: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
     questions: new FormArray([createQuestionGroup()]),
   });
 

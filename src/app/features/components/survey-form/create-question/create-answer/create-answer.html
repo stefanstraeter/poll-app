@@ -11,4 +11,10 @@
     placeholder=""
     [formControl]="answerControl()"
   />
+  <span
+    class="create-answer__error"
+    [class.create-answer__error--visible]="answerControl().invalid && answerControl().touched"
+  >
+    Answer is required.
+  </span>
 </div>

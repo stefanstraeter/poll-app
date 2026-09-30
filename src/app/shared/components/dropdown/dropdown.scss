@@ -11,7 +11,7 @@
   &__selected {
     display: flex;
     justify-content: flex-start;
-    padding: v.$btn-padding-sm;
+
     width: 0;
     min-width: 100%;
     white-space: nowrap;
@@ -21,6 +21,7 @@
 
     @media (min-width: v.$breakpoint-lg) {
       justify-content: flex-end;
+      padding: 0 v.$btn-padding-md;
     }
   }
 
@@ -33,12 +34,16 @@
 
     background-color: v.$btn-dropdown-bg;
     color: v.$btn-dropdown-text;
-    padding: v.$btn-padding-xxs v.$btn-padding-md;
+    padding: v.$btn-padding-xxs 0;
     border: none;
     border-radius: v.$btn-border-radius-sm;
     font-weight: v.$font-weight-bold;
     width: 100%;
     transition: background-color 0.2s ease;
+
+    @media (min-width: v.$breakpoint-lg) {
+      padding: v.$btn-padding-xxs v.$btn-padding-md;
+    }
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {

@@ -39,6 +39,21 @@
       min-width: 1.2rem;
     }
   }
+
+  &__error {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-accent;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+
+    @media (min-width: v.$breakpoint-lg) {
+      grid-column: 2 / 3;
+    }
+  }
 }
 
 // Gleicher Grund wie in create-question.scss: View Encapsulation teilt

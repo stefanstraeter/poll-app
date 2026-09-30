@@ -1,12 +1,12 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 :host {
   display: block;
 }
 
 .create-question {
-  @include m.flex($direction: column, $gap: v.$spacing-sm);
+  @include m.flex($direction: column, $gap: v.$spacing-xxs);
 
   &__header {
     @include m.flex($justify: space-between, $align: center);
@@ -21,7 +21,6 @@
 
   &__answers-header {
     @include m.flex($justify: space-between, $align: center);
-    margin-top: v.$spacing-md;
   }
 
   &__multiple {
@@ -35,9 +34,20 @@
     color: v.$color-text-accent;
   }
 
+  &__error {
+    display: block;
+    font-size: v.$font-size-sm;
+    color: v.$color-text-accent;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+  }
+
   &__answers {
     list-style: none;
-    @include m.flex($direction: column, $gap: v.$spacing-xs);
+    @include m.flex($direction: column, $gap: v.$spacing-xxs);
   }
 
   &__add-answer {

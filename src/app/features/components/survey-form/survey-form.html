@@ -13,10 +13,12 @@
         placeholder=""
         formControlName="title"
       />
-      @if (surveyForm.controls.title.invalid &&
-      surveyForm.controls.title.touched) {
-      <span class="survey-form__error">Survey name is required.</span>
-      }
+      <span
+        class="survey-form__error"
+        [class.survey-form__error--visible]="surveyForm.controls.title.invalid && surveyForm.controls.title.touched"
+      >
+        Survey name is required.
+      </span>
     </div>
 
     <div class="survey-form__field survey-form__field--category">
@@ -26,6 +28,12 @@
         [selected]="surveyForm.controls.category.value"
         (selectedChange)="surveyForm.controls.category.setValue($event)"
       />
+      <span
+        class="survey-form__error"
+        [class.survey-form__error--visible]="surveyForm.controls.category.invalid && surveyForm.controls.category.touched"
+      >
+        Category is required.
+      </span>
     </div>
 
     <div class="survey-form__field survey-form__field--enddate">

@@ -9,6 +9,12 @@
   </div>
 
   <input type="text" class="input-field" placeholder="" formControlName="text" />
+  <span
+    class="create-question__error"
+    [class.create-question__error--visible]="questionGroup().controls.text.invalid && questionGroup().controls.text.touched"
+  >
+    Question text is required.
+  </span>
 
   <div class="create-question__answers-header">
     <span>Answers</span>

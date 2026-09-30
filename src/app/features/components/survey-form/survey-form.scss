@@ -8,7 +8,7 @@
 .survey-form {
   &__card {
     display: grid;
-    gap: v.$spacing-lg;
+    gap: v.$spacing-sm;
     padding: v.$spacing-lg v.$spacing-md;
     background-color: v.$card-dark-bg;
     border-radius: v.$card-asymmetric-radius;
@@ -33,7 +33,7 @@
   }
 
   &__field {
-    @include m.flex($direction: column, $gap: v.$spacing-xs);
+    @include m.flex($direction: column, $gap: v.$spacing-xxs);
 
     &--name {
       grid-area: name;
@@ -87,6 +87,11 @@
     display: block;
     font-size: v.$font-size-sm;
     color: v.$color-text-accent;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
   }
 
   &__add-question {
