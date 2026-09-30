@@ -2,7 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { SurveyCard } from '../survey-card/survey-card';
 import { Button } from '@shared/components/button/button';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
-import { SURVEY_CATEGORIES } from '@features/surveys/constants/survey-categories';
+import { SURVEY_CATEGORIES } from '@features/constants/survey-categories';
 import { Surveys } from '../../services/surveys';
 
 @Component({

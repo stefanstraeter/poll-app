@@ -7,6 +7,7 @@ import { Component, input } from '@angular/core';
   templateUrl: './button.html',
 })
 export class Button {
+  type = input<'button' | 'submit'>('button');
   variant = input<
     'primary' | 'secondary' | 'tertiary' | 'filter' | 'neutral' | 'icon'
   >('primary');
@@ -44,8 +45,4 @@ Nur DANN disabled, wenn du's explizit angibst
 
 Oder dynamisch, z.B. während ein Formular lädt
 <app-button variant="primary" [disabled]="isLoading()">New survey</app-button>
-
-
-
-
 */

@@ -6,9 +6,6 @@
   gap: $gap;
 }
 
-// default: direction: row, align-items: stretch, justify-content: flex-start, gap: 0
-// Named Arguments macht das Lesen einfacher, da man die Werte nicht in der richtigen Reihenfolge angeben muss.
-
 @mixin line-clamp($lines: 2) {
   display: -webkit-box;
   -webkit-line-clamp: $lines;

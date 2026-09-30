@@ -1,0 +1,10 @@
+// display: contents, damit der Custom-Element-Host selbst keine eigene Box
+// im Layout bildet, nur das <svg> darin zählt - als stünde es direkt im
+// Template der Elternkomponente.
+:host {
+  display: contents;
+}
+
+svg {
+  width: 1.2rem;
+}
