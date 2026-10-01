@@ -12,6 +12,7 @@ import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
 export class CreateAnswer {
   answerControl = input.required<FormControl<string>>();
   answerIndex = input.required<number>();
+  canRemove = input<boolean>(true);
   remove = output<void>();
 
   answerLetter(): string {
