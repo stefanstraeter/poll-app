@@ -7,6 +7,7 @@ import { createAnswerControl, QuestionFormGroup } from '../model/question-form-b
 import { CreateAnswer } from './create-answer/create-answer';
 
 const MAX_ANSWERS = 8;
+const MIN_ANSWERS = 2;
 
 @Component({
   imports: [ReactiveFormsModule, Button, Checkbox, DeleteIcon, CreateAnswer],
@@ -17,6 +18,7 @@ const MAX_ANSWERS = 8;
 export class CreateQuestion {
   questionGroup = input.required<QuestionFormGroup>();
   questionIndex = input.required<number>();
+  canRemove = input<boolean>(true);
   remove = output<void>();
 
   addAnswer(): void {
@@ -27,10 +29,16 @@ export class CreateQuestion {
   }
 
   removeAnswer(answerIndex: number): void {
-    this.questionGroup().controls.answers.removeAt(answerIndex);
+    if (this.canRemoveAnswer()) {
+      this.questionGroup().controls.answers.removeAt(answerIndex);
+    }
   }
 
   hasReachedAnswerLimit(): boolean {
     return this.questionGroup().controls.answers.length >= MAX_ANSWERS;
+  }
+
+  canRemoveAnswer(): boolean {
+    return this.questionGroup().controls.answers.length > MIN_ANSWERS;
   }
 }
