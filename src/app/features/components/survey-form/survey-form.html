@@ -71,6 +71,7 @@
       <app-create-question
         [questionGroup]="questionGroup"
         [questionIndex]="questionIndex"
+        [canRemove]="canRemoveQuestion()"
         (remove)="removeQuestion(questionIndex)"
       />
       }
