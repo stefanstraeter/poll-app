@@ -111,6 +111,28 @@
     @media (min-width: v.$breakpoint-lg) {
       margin-inline: auto 0;
     }
+
+    svg {
+      width: 1.2rem;
+      transition:
+        width 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      svg {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      &:hover svg {
+        width: 1.2rem;
+        opacity: 1;
+        transform: translateX(4px);
+      }
+    }
   }
 }
 
