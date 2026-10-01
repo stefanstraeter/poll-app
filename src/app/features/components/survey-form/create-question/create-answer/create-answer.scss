@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 :host {
   display: block;
@@ -56,8 +56,6 @@
   }
 }
 
-// Gleicher Grund wie in create-question.scss: View Encapsulation teilt
-// input-field.scss nicht über Komponentengrenzen hinweg.
 .input-field {
   width: 100%;
   padding: v.$spacing-xs v.$spacing-md;
