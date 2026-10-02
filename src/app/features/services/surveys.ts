@@ -78,8 +78,6 @@ export class Surveys {
     },
   ]);
 
-  // Nur lesbar nach außen. Ändern geht ausschließlich über die Methoden
-  // unten, damit an einer Stelle klar ist, wie sich der Datenbestand ändert.
   surveys = this.surveysSignal.asReadonly();
 
   addSurvey(survey: Survey): void {
