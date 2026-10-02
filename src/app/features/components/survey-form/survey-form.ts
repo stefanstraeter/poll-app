@@ -69,6 +69,12 @@ export class SurveyForm {
     describingText.markAsUntouched();
   }
 
+  clearEndsIn(): void {
+    const endsIn = this.surveyForm.controls.endsIn;
+    endsIn.setValue('');
+    endsIn.markAsUntouched();
+  }
+
   handleSubmit(): void {
     if (this.surveyForm.invalid) {
       this.surveyForm.markAllAsTouched();
