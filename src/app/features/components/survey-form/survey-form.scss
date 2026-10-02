@@ -33,7 +33,7 @@
   }
 
   &__field {
-    @include m.flex($direction: column, $gap: v.$spacing-xxs);
+    @include m.flex($direction: column, $gap: v.$spacing-xs);
 
     &--name {
       grid-area: name;
