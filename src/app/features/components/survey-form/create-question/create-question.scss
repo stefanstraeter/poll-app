@@ -32,6 +32,7 @@
     display: block;
     font-size: v.$font-size-sm;
     color: v.$color-text-accent;
+    text-align: end;
   }
 
   &__error {
