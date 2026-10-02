@@ -3,7 +3,7 @@
     <div class="survey-form__field survey-form__field--name">
       <div class="survey-form__field-header">
         <span class="survey-form__label">Survey name</span>
-        <app-button variant="icon" class="delete-btn">
+        <app-button variant="icon" class="delete-btn" (click)="clearTitle()">
           <app-delete-icon />
         </app-button>
       </div>
@@ -54,7 +54,11 @@
     <div class="survey-form__field survey-form__field--describing">
       <div class="survey-form__field-header">
         <span class="survey-form__label">Describing text (optional)</span>
-        <app-button variant="icon" class="delete-btn">
+        <app-button
+          variant="icon"
+          class="delete-btn"
+          (click)="clearDescribingText()"
+        >
           <app-delete-icon />
         </app-button>
       </div>

@@ -57,6 +57,18 @@ export class SurveyForm {
     text.markAsUntouched();
   }
 
+  clearTitle(): void {
+    const title = this.surveyForm.controls.title;
+    title.setValue('');
+    title.markAsUntouched();
+  }
+
+  clearDescribingText(): void {
+    const describingText = this.surveyForm.controls.describingText;
+    describingText.setValue('');
+    describingText.markAsUntouched();
+  }
+
   handleSubmit(): void {
     if (this.surveyForm.invalid) {
       this.surveyForm.markAllAsTouched();
