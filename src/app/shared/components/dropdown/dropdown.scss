@@ -29,7 +29,7 @@
     @include m.flex(
       $align: center,
       $justify: space-between,
-      $gap: v.$spacing-md
+      $gap: v.$spacing-xs
     );
 
     background-color: v.$btn-dropdown-bg;
