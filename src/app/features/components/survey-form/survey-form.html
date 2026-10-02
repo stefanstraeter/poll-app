@@ -39,16 +39,11 @@
     <div class="survey-form__field survey-form__field--enddate">
       <div class="survey-form__field-header">
         <span class="survey-form__label">Set end date (optional)</span>
-        <app-button variant="icon" class="delete-btn">
+        <app-button variant="icon" class="delete-btn" (click)="clearEndsIn()">
           <app-delete-icon />
         </app-button>
       </div>
-      <input
-        type="text"
-        class="input-field"
-        placeholder="DD.MM.YYYY"
-        formControlName="endsIn"
-      />
+      <input type="date" class="input-field" formControlName="endsIn" />
     </div>
 
     <div class="survey-form__field survey-form__field--describing">
