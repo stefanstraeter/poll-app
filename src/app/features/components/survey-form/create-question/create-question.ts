@@ -18,7 +18,6 @@ const MIN_ANSWERS = 2;
 export class CreateQuestion {
   questionGroup = input.required<QuestionFormGroup>();
   questionIndex = input.required<number>();
-  canRemove = input<boolean>(true);
   remove = output<void>();
 
   addAnswer(): void {
@@ -29,16 +28,17 @@ export class CreateQuestion {
   }
 
   removeAnswer(answerIndex: number): void {
-    if (this.canRemoveAnswer()) {
-      this.questionGroup().controls.answers.removeAt(answerIndex);
+    const answers = this.questionGroup().controls.answers;
+    if (answerIndex < MIN_ANSWERS) {
+      const answerControl = answers.at(answerIndex);
+      answerControl.setValue('');
+      answerControl.markAsUntouched();
+    } else {
+      answers.removeAt(answerIndex);
     }
   }
 
   hasReachedAnswerLimit(): boolean {
     return this.questionGroup().controls.answers.length >= MAX_ANSWERS;
-  }
-
-  canRemoveAnswer(): boolean {
-    return this.questionGroup().controls.answers.length > MIN_ANSWERS;
   }
 }

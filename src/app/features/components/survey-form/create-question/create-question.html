@@ -3,12 +3,7 @@
     <h3 class="create-question__headline">
       {{ questionIndex() + 1 }}. Question
     </h3>
-    <app-button
-      variant="icon"
-      class="delete-btn"
-      [disabled]="!canRemove()"
-      (click)="remove.emit()"
-    >
+    <app-button variant="icon" class="delete-btn" (click)="remove.emit()">
       <app-delete-icon />
     </app-button>
   </div>
@@ -38,7 +33,6 @@
       <app-create-answer
         [answerControl]="answerControl"
         [answerIndex]="answerIndex"
-        [canRemove]="canRemoveAnswer()"
         (remove)="removeAnswer(answerIndex)"
       />
     </li>
