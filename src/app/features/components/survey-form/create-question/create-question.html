@@ -8,12 +8,17 @@
     </app-button>
   </div>
 
-  <input type="text" class="input-field" placeholder="" formControlName="text" />
+  <input
+    type="text"
+    class="input-field"
+    placeholder=""
+    formControlName="text"
+  />
   <span
     class="create-question__error"
     [class.create-question__error--visible]="questionGroup().controls.text.invalid && questionGroup().controls.text.touched"
   >
-    Question text is required.
+    Please enter a question
   </span>
 
   <div class="create-question__answers-header">
@@ -23,12 +28,13 @@
         [checked]="questionGroup().controls.allowMultiple.value"
         (toggled)="questionGroup().controls.allowMultiple.setValue($event)"
       />
-      <span>Allow multiple answers.</span>
+      <span>Multiple answers allowed</span>
     </div>
   </div>
 
   <ul class="create-question__answers">
-    @for (answerControl of questionGroup().controls.answers.controls; track answerControl; let answerIndex = $index) {
+    @for (answerControl of questionGroup().controls.answers.controls; track
+    answerControl; let answerIndex = $index) {
     <li>
       <app-create-answer
         [answerControl]="answerControl"
