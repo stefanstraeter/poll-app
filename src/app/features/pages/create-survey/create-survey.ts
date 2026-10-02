@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
 import { Theme } from '@core/services/theme';
@@ -8,7 +8,7 @@ import { Surveys } from '@features/services/surveys';
 import { SurveyForm } from '@features/components/survey-form/survey-form';
 
 @Component({
-  imports: [StatusBadge, Button, SurveyForm],
+  imports: [StatusBadge, Button, SurveyForm, RouterLink],
   selector: 'app-create-survey',
   styleUrl: './create-survey.scss',
   templateUrl: './create-survey.html',
