@@ -14,8 +14,6 @@ import { Survey } from '@features/interfaces/survey';
 import { CreateQuestion } from './create-question/create-question';
 import { createQuestionGroup } from './model/question-form-builder';
 
-const MIN_QUESTIONS = 1;
-
 @Component({
   imports: [Button, Dropdown, DeleteIcon, CreateQuestion, ReactiveFormsModule],
   selector: 'app-survey-form',
@@ -46,13 +44,17 @@ export class SurveyForm {
   }
 
   removeQuestion(questionIndex: number): void {
-    if (this.canRemoveQuestion()) {
+    if (questionIndex === 0) {
+      this.clearFirstQuestion();
+    } else {
       this.surveyForm.controls.questions.removeAt(questionIndex);
     }
   }
 
-  canRemoveQuestion(): boolean {
-    return this.surveyForm.controls.questions.length > MIN_QUESTIONS;
+  private clearFirstQuestion(): void {
+    const text = this.surveyForm.controls.questions.at(0).controls.text;
+    text.setValue('');
+    text.markAsUntouched();
   }
 
   handleSubmit(): void {
