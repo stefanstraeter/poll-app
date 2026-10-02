@@ -24,6 +24,9 @@ $purple-900: #35273a;
 $brown-300: #a27367;
 $brown-600: #72524a;
 
+// Black Scale
+$black-000: #00000056;
+
 // ==========================================================================
 // TYPOGRAPHY
 // ==========================================================================
@@ -75,6 +78,8 @@ $progress-bar-asymmetric-radius: $radius-none $radius-sm $radius-sm $radius-none
 $input-asymmetric-radius: $radius-sm $radius-lg $radius-sm $radius-sm;
 $status-badge-asymmetric-radius: $radius-none $radius-md $radius-none
   $radius-none;
+$status-overlay-asymmetric-radius: $radius-none $radius-xl $radius-none
+  $radius-none;
 
 // ==========================================================================
 // SPACING & LAYOUT
@@ -123,6 +128,7 @@ $breakpoint-xxl: 1440px;
 // Backgrounds
 $bg-dark: $purple-900;
 $bg-neutral: $neutral-000;
+$bg-overlay: $black-000;
 
 // Primary Button
 $btn-primary-bg: $orange-300;
