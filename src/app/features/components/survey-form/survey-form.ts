@@ -82,19 +82,20 @@ export class SurveyForm {
     }
 
     const survey: Survey = {
-      id: crypto.randomUUID(),
+      id: 0, // id ist ein Platzhalter, die "echte" ID wird von der Datenbank generiert
       title: this.surveyForm.controls.title.value,
       category: this.surveyForm.controls.category.value,
       deadline: this.surveyForm.controls.deadline.value,
       description: this.surveyForm.controls.description.value,
       questions: this.surveyForm.controls.questions.controls.map(
         (questionGroup) => ({
-          id: crypto.randomUUID(),
+          id: 0,
           text: questionGroup.controls.text.value,
           multiple: questionGroup.controls.multiple.value,
           answers: questionGroup.controls.answers.controls.map(
             (answerControl) => ({
-              id: crypto.randomUUID(),
+              id: 0,
+              votes: 0,
               text: answerControl.value,
             }),
           ),
