@@ -2,7 +2,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 export type QuestionFormGroup = FormGroup<{
   text: FormControl<string>;
-  allowMultiple: FormControl<boolean>;
+  multiple: FormControl<boolean>;
   answers: FormArray<FormControl<string>>;
 }>;
 
@@ -19,7 +19,7 @@ export function createQuestionGroup(): QuestionFormGroup {
       nonNullable: true,
       validators: [Validators.required],
     }),
-    allowMultiple: new FormControl(false, { nonNullable: true }),
+    multiple: new FormControl(false, { nonNullable: true }),
     answers: new FormArray([createAnswerControl(), createAnswerControl()]),
   });
 }
