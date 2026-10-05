@@ -11,8 +11,12 @@ import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
 import { SURVEY_CATEGORIES } from '@features/constants/survey-categories';
 import { Survey } from '@features/interfaces/survey';
+import { Answer, Question } from '@features/interfaces/question';
 import { CreateQuestion } from './create-question/create-question';
-import { createQuestionGroup } from './model/question-form-builder';
+import {
+  createQuestionGroup,
+  QuestionFormGroup,
+} from './model/question-form-builder';
 
 @Component({
   imports: [Button, Dropdown, DeleteIcon, CreateQuestion, ReactiveFormsModule],
@@ -81,28 +85,38 @@ export class SurveyForm {
       return;
     }
 
-    const survey: Survey = {
+    this.submitted.emit(this.buildSurvey());
+  }
+
+  private buildSurvey(): Survey {
+    return {
       id: 0, // id ist ein Platzhalter, die "echte" ID wird von der Datenbank generiert
       title: this.surveyForm.controls.title.value,
       category: this.surveyForm.controls.category.value,
       deadline: this.surveyForm.controls.deadline.value,
       description: this.surveyForm.controls.description.value,
       questions: this.surveyForm.controls.questions.controls.map(
-        (questionGroup) => ({
-          id: 0,
-          text: questionGroup.controls.text.value,
-          multiple: questionGroup.controls.multiple.value,
-          answers: questionGroup.controls.answers.controls.map(
-            (answerControl) => ({
-              id: 0,
-              votes: 0,
-              text: answerControl.value,
-            }),
-          ),
-        }),
+        (questionGroup) => this.buildQuestion(questionGroup),
       ),
     };
+  }
 
-    this.submitted.emit(survey);
+  private buildQuestion(questionGroup: QuestionFormGroup): Question {
+    return {
+      id: 0,
+      text: questionGroup.controls.text.value,
+      multiple: questionGroup.controls.multiple.value,
+      answers: questionGroup.controls.answers.controls.map((answerControl) =>
+        this.buildAnswer(answerControl),
+      ),
+    };
+  }
+
+  private buildAnswer(answerControl: FormControl<string>): Answer {
+    return {
+      id: 0,
+      votes: 0,
+      text: answerControl.value,
+    };
   }
 }
