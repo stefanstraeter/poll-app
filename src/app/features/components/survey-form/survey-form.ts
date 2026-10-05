@@ -28,8 +28,8 @@ export class SurveyForm {
       nonNullable: true,
       validators: [Validators.required],
     }),
-    endsIn: new FormControl('', { nonNullable: true }),
-    describingText: new FormControl('', { nonNullable: true }),
+    deadline: new FormControl('', { nonNullable: true }),
+    description: new FormControl('', { nonNullable: true }),
     category: new FormControl('', {
       nonNullable: true,
       validators: [Validators.required],
@@ -63,16 +63,16 @@ export class SurveyForm {
     title.markAsUntouched();
   }
 
-  clearDescribingText(): void {
-    const describingText = this.surveyForm.controls.describingText;
-    describingText.setValue('');
-    describingText.markAsUntouched();
+  clearDescription(): void {
+    const description = this.surveyForm.controls.description;
+    description.setValue('');
+    description.markAsUntouched();
   }
 
-  clearEndsIn(): void {
-    const endsIn = this.surveyForm.controls.endsIn;
-    endsIn.setValue('');
-    endsIn.markAsUntouched();
+  clearDeadline(): void {
+    const deadline = this.surveyForm.controls.deadline;
+    deadline.setValue('');
+    deadline.markAsUntouched();
   }
 
   handleSubmit(): void {
@@ -85,13 +85,13 @@ export class SurveyForm {
       id: crypto.randomUUID(),
       title: this.surveyForm.controls.title.value,
       category: this.surveyForm.controls.category.value,
-      endsIn: this.surveyForm.controls.endsIn.value,
-      describingText: this.surveyForm.controls.describingText.value,
+      deadline: this.surveyForm.controls.deadline.value,
+      description: this.surveyForm.controls.description.value,
       questions: this.surveyForm.controls.questions.controls.map(
         (questionGroup) => ({
           id: crypto.randomUUID(),
           text: questionGroup.controls.text.value,
-          allowMultiple: questionGroup.controls.allowMultiple.value,
+          multiple: questionGroup.controls.multiple.value,
           answers: questionGroup.controls.answers.controls.map(
             (answerControl) => ({
               id: crypto.randomUUID(),

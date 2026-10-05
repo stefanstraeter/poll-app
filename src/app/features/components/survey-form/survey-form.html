@@ -39,11 +39,11 @@
     <div class="survey-form__field survey-form__field--enddate">
       <div class="survey-form__field-header">
         <span class="survey-form__label">End date - optional</span>
-        <app-button variant="icon" class="delete-btn" (click)="clearEndsIn()">
+        <app-button variant="icon" class="delete-btn" (click)="clearDeadline()">
           <app-delete-icon />
         </app-button>
       </div>
-      <input type="date" class="input-field" formControlName="endsIn" />
+      <input type="date" class="input-field" formControlName="deadline" />
     </div>
 
     <div class="survey-form__field survey-form__field--describing">
@@ -52,7 +52,7 @@
         <app-button
           variant="icon"
           class="delete-btn"
-          (click)="clearDescribingText()"
+          (click)="clearDescription()"
         >
           <app-delete-icon />
         </app-button>
@@ -60,7 +60,7 @@
       <textarea
         class="textarea-field"
         placeholder=""
-        formControlName="describingText"
+        formControlName="description"
       ></textarea>
     </div>
 
