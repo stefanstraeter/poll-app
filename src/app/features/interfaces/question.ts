@@ -1,11 +1,12 @@
 export interface Answer {
-  id: string;
+  id: number;
   text: string;
+  votes: number;
 }
 
 export interface Question {
-  id: string;
+  id: number;
   text: string;
-  allowMultiple: boolean;
+  multiple: boolean;
   answers: Answer[];
 }

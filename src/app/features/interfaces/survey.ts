@@ -1,10 +1,10 @@
 import { Question } from './question';
 
 export interface Survey {
-  id: string;
+  id: number;
   title: string;
   category: string;
-  endsIn: string;
-  describingText: string;
+  deadline: string;
+  description: string;
   questions: Question[];
 }
