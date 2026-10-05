@@ -30,8 +30,8 @@ export class CreateSurvey implements OnInit, OnDestroy {
     this.theme.setDarkMode(true);
   }
 
-  onSurveyCreated(survey: Survey): void {
-    this.surveysService.addSurvey(survey);
+  async onSurveyCreated(survey: Survey): Promise<void> {
+    await this.surveysService.addSurvey(survey);
     this.notifications.show('Your survey is now published');
     setTimeout(() => this.router.navigate(['/']), NAVIGATE_DELAY_MS);
   }
