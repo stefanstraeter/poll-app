@@ -25,8 +25,8 @@
     <span>Answers</span>
     <div class="create-question__multiple">
       <app-checkbox
-        [checked]="questionGroup().controls.allowMultiple.value"
-        (toggled)="questionGroup().controls.allowMultiple.setValue($event)"
+        [checked]="questionGroup().controls.multiple.value"
+        (toggled)="questionGroup().controls.multiple.setValue($event)"
       />
       <span>Multiple answers allowed</span>
     </div>
