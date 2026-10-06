@@ -7,7 +7,7 @@ import { clearControl } from '@shared/forms/clear-control';
 import {
   createAnswerControl,
   QuestionFormGroup,
-} from '../model/question-form-builder';
+} from '../model/question-answers-form';
 import { CreateAnswer } from './create-answer/create-answer';
 
 const MAX_ANSWERS = 8;
