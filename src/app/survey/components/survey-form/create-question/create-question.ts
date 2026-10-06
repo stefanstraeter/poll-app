@@ -4,12 +4,22 @@ import { Button } from '@shared/components/button/button';
 import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
 import { clearControl } from '@shared/forms/clear-control';
-import { createAnswerControl, QuestionFormGroup } from '../model/question-form-builder';
+import {
+  createAnswerControl,
+  QuestionFormGroup,
+} from '../model/question-form-builder';
 import { CreateAnswer } from './create-answer/create-answer';
 
 const MAX_ANSWERS = 8;
 const MIN_ANSWERS = 2;
 
+/**
+ * @description Shows one question with its answers. The question group is
+ * received from the parent form, this class only handles adding, clearing
+ * and removing answers. The first two answers are required, the rest are optional.
+ * @export
+ * @class CreateQuestion
+ */
 @Component({
   imports: [ReactiveFormsModule, Button, Checkbox, DeleteIcon, CreateAnswer],
   selector: 'app-create-question',
@@ -21,22 +31,64 @@ export class CreateQuestion {
   questionIndex = input.required<number>();
   remove = output<void>();
 
+  /**
+   * @description Adds a new answer, but only if the limit has not been reached.
+   * @memberof CreateQuestion
+   */
   addAnswer(): void {
-    const answers = this.questionGroup().controls.answers;
-    if (answers.length < MAX_ANSWERS) {
-      answers.push(createAnswerControl());
+    if (this.canAddAnswer()) {
+      this.questionGroup().controls.answers.push(createAnswerControl());
     }
   }
 
+  /**
+   * @description Checks if another answer may be added.
+   * @return {*}  {boolean}
+   * @memberof CreateQuestion
+   */
+  canAddAnswer(): boolean {
+    return !this.hasReachedAnswerLimit();
+  }
+
+  /**
+   * @description Called by the template. Clears the first answers (they must stay),
+   * and removes all others.
+  
+   * @param {number} answerIndex
+   * @memberof CreateQuestion
+   */
   removeAnswer(answerIndex: number): void {
-    const answers = this.questionGroup().controls.answers;
-    if (answerIndex < MIN_ANSWERS) {
-      clearControl(answers.at(answerIndex));
+    if (this.canRemoveAnswer(answerIndex)) {
+      this.deleteAnswer(answerIndex);
     } else {
-      answers.removeAt(answerIndex);
+      clearControl(this.questionGroup().controls.answers.at(answerIndex));
     }
   }
 
+  /**
+   * @description Checks the position only. Answers below MIN_ANSWERS must stay.
+   * @param {number} answerIndex
+   * @return {boolean}  
+   * @memberof CreateQuestion
+   */
+  canRemoveAnswer(answerIndex: number): boolean {
+    return answerIndex >= MIN_ANSWERS;
+  }
+
+  /**
+   * @description Removes the answer at this position. Does not check anything itself.
+   * @param {number} answerIndex
+   * @memberof CreateQuestion
+   */
+  deleteAnswer(answerIndex: number): void {
+    this.questionGroup().controls.answers.removeAt(answerIndex);
+  }
+
+  /**
+   * @description Checks if the maximum number of answers has been reached.
+   * @return {boolean}  
+   * @memberof CreateQuestion
+   */
   hasReachedAnswerLimit(): boolean {
     return this.questionGroup().controls.answers.length >= MAX_ANSWERS;
   }
