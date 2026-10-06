@@ -4,9 +4,9 @@ import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
 import { Theme } from '@core/services/theme';
 import { Notifications } from '@core/services/notifications';
-import { Survey } from '@features/interfaces/survey';
-import { Surveys } from '@features/services/surveys';
-import { SurveyForm } from '@features/components/survey-form/survey-form';
+import { Survey } from '@survey/model/interfaces/survey';
+import { Surveys } from '@survey/services/surveys';
+import { SurveyForm } from '@survey/components/survey-form/survey-form';
 
 const NAVIGATE_DELAY_MS = 1500;
 

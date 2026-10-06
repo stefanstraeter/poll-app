@@ -1,7 +1,7 @@
 import { inject, signal, Service } from '@angular/core';
 import { Supabase } from '@core/services/supabase';
-import { Survey } from '../interfaces/survey';
-import { Answer, Question } from '../interfaces/question';
+import { Survey } from '../model/interfaces/survey';
+import { Answer, Question } from '../model/interfaces/question';
 
 @Service()
 export class Surveys {

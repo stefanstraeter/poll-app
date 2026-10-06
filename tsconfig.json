@@ -15,7 +15,7 @@
     "module": "preserve",
     "paths": {
       "@core/*": ["./src/app/core/*"],
-      "@features/*": ["./src/app/features/*"],
+      "@survey/*": ["./src/app/survey/*"],
       "@shared/*": ["./src/app/shared/*"],
       "@layout/*": ["./src/app/layout/*"],
       "@environments/*": ["./src/environments/*"]

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SurveysOverview } from '@features/components/surveys-overview/surveys-overview';
+import { SurveysOverview } from '@survey/components/surveys-overview/surveys-overview';
 import { Button } from '@shared/components/button/button';
 
 @Component({

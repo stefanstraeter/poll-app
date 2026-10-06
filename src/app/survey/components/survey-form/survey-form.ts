@@ -11,9 +11,9 @@ import { clearControl } from '@shared/forms/clear-control';
 import { notBeforeDate, todayAsIsoDate } from '@shared/validators/date';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
-import { SURVEY_CATEGORIES } from '@features/constants/survey-categories';
-import { Survey } from '@features/interfaces/survey';
-import { Answer, Question } from '@features/interfaces/question';
+import { SURVEY_CATEGORIES } from '@survey/model/constants/survey-categories';
+import { Survey } from '@survey/model/interfaces/survey';
+import { Answer, Question } from '@survey/model/interfaces/question';
 import { CreateQuestion } from './create-question/create-question';
 import {
   createQuestionGroup,
