@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Button } from '@shared/components/button/button';
+import { clearControl } from '@shared/forms/clear-control';
 import { notBeforeDate, todayAsIsoDate } from '@shared/validators/date';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
@@ -27,7 +28,6 @@ import {
 })
 export class SurveyForm {
   submitted = output<Survey>();
-
   today = todayAsIsoDate();
 
   surveyForm = new FormGroup({
@@ -62,27 +62,19 @@ export class SurveyForm {
   }
 
   private clearFirstQuestion(): void {
-    const text = this.surveyForm.controls.questions.at(0).controls.text;
-    text.setValue('');
-    text.markAsUntouched();
+    clearControl(this.surveyForm.controls.questions.at(0).controls.text);
   }
 
   clearTitle(): void {
-    const title = this.surveyForm.controls.title;
-    title.setValue('');
-    title.markAsUntouched();
+    clearControl(this.surveyForm.controls.title);
   }
 
   clearDescription(): void {
-    const description = this.surveyForm.controls.description;
-    description.setValue('');
-    description.markAsUntouched();
+    clearControl(this.surveyForm.controls.description);
   }
 
   clearDeadline(): void {
-    const deadline = this.surveyForm.controls.deadline;
-    deadline.setValue('');
-    deadline.markAsUntouched();
+    clearControl(this.surveyForm.controls.deadline);
   }
 
   handleSubmit(): void {
