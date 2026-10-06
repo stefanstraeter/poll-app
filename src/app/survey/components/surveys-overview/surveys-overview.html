@@ -40,7 +40,7 @@
   </div>
 
   <div class="surveys-overview__list">
-    @for (survey of surveys(); track survey.id) {
+    @for (survey of filteredSurveys(); track survey.id) {
     <app-survey-card
       variant="list"
       [category]="survey.category"
