@@ -18,7 +18,7 @@ import { CreateQuestion } from './create-question/create-question';
 import {
   createQuestionGroup,
   QuestionFormGroup,
-} from './model/question-form-builder';
+} from './model/question-answers-form';
 
 /**
  * @description Shows the form for creating a survey: title, end date, description, category and questions.
