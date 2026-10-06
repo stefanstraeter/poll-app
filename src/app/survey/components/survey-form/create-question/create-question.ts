@@ -43,7 +43,7 @@ export class CreateQuestion {
 
   /**
    * @description Checks if another answer may be added.
-   * @return {*}  {boolean}
+   * @return {boolean}  
    * @memberof CreateQuestion
    */
   canAddAnswer(): boolean {
