@@ -6,7 +6,6 @@ import { Answer, Question } from '../model/interfaces/question';
 @Service()
 export class Surveys {
   private supabase = inject(Supabase);
-
   private surveysSignal = signal<Survey[]>([]); // read + write access
   surveys = this.surveysSignal.asReadonly(); // read-only access
 
@@ -17,7 +16,7 @@ export class Surveys {
   /**
    * @description Loads all surveys with their questions and answers
    * from Supabase and writes them into the signal.
-   * @return {*}  {Promise<void>}
+   * @return {Promise<void>} - A promise that resolves when the surveys are loaded.
    * @memberof Surveys
    */
   async loadSurveys(): Promise<void> {
@@ -30,14 +29,14 @@ export class Surveys {
       return;
     }
 
-    this.surveysSignal.set((data ?? []) as Survey[]); // fallback to empty array if data is null or undefined
+    this.surveysSignal.set((data ?? []) as Survey[]);
   }
 
   /**
    * @description Loads a single survey by id directly from Supabase,
    * used by the detail page.
    * @param {number} id
-   * @return {*}  {(Promise<Survey | undefined>)}
+   * @return {Promise<Survey | undefined>} - The survey, or undefined if it could not be loaded.
    * @memberof Surveys
    */
   async getSurveyById(id: number): Promise<Survey | undefined> {
@@ -59,7 +58,7 @@ export class Surveys {
    * @description Creates a new survey with all its questions and answers
    * in Supabase, then reloads the list.
    * @param {Survey} survey
-   * @return {*}  {Promise<void>}
+   * @return {Promise<void>} - Resolves when the survey is saved and the list is reloaded.
    * @memberof Surveys
    */
   async addSurvey(survey: Survey): Promise<void> {
@@ -80,7 +79,7 @@ export class Surveys {
    * @description Inserts one survey row (without questions).
    * @private
    * @param {Survey} survey
-   * @return {*}  {Promise<number>}
+   * @return {Promise<number>} - The id of the new survey row.
    * @memberof Surveys
    */
   private async insertSurvey(survey: Survey): Promise<number> {
@@ -107,7 +106,7 @@ export class Surveys {
    * @private
    * @param {Question} question
    * @param {number} surveyId
-   * @return {*}  {Promise<number>}
+   * @return {Promise<number>} - The id of the new question row.
    * @memberof Surveys
    */
   private async insertQuestion(
@@ -132,12 +131,12 @@ export class Surveys {
   }
 
   /**
-   * @description Inserts one answer row. Supabase sets `votes` to 0
+   * @description Inserts one answer row. Database sets `votes` to 0
    * automatically, so no id needs to be returned here.
    * @private
    * @param {Answer} answer
    * @param {number} questionId
-   * @return {*}  {Promise<void>}
+   * @return {Promise<void>} - Resolves when the answer is saved.
    * @memberof Surveys
    */
   private async insertAnswer(
