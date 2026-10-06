@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Button } from '@shared/components/button/button';
+import { notBeforeDate, todayAsIsoDate } from '@shared/validators/date';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
 import { SURVEY_CATEGORIES } from '@features/constants/survey-categories';
@@ -27,12 +28,17 @@ import {
 export class SurveyForm {
   submitted = output<Survey>();
 
+  today = todayAsIsoDate();
+
   surveyForm = new FormGroup({
     title: new FormControl('', {
       nonNullable: true,
       validators: [Validators.required],
     }),
-    deadline: new FormControl('', { nonNullable: true }),
+    deadline: new FormControl('', {
+      nonNullable: true,
+      validators: [notBeforeDate(this.today)],
+    }),
     description: new FormControl('', { nonNullable: true }),
     category: new FormControl('', {
       nonNullable: true,

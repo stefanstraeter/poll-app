@@ -43,7 +43,18 @@
           <app-delete-icon />
         </app-button>
       </div>
-      <input type="date" class="input-field" formControlName="deadline" />
+      <input
+        type="date"
+        class="input-field"
+        formControlName="deadline"
+        [min]="today"
+      />
+      <span
+        class="survey-form__error"
+        [class.survey-form__error--visible]="surveyForm.controls.deadline.invalid && surveyForm.controls.deadline.touched"
+      >
+        Please choose a date in the future
+      </span>
     </div>
 
     <div class="survey-form__field survey-form__field--describing">
