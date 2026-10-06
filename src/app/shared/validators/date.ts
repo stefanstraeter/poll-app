@@ -4,7 +4,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
  * @description Returns today's date as text in the format YYYY-MM-DD (local time).
  * This is the format that <input type="date"> expects.
  * @export
- * @return {*}  {string}
+ * @return {string} - Today's date in the format YYYY-MM-DD.
  */
 export function todayAsIsoDate(): string {
   const now = new Date();
@@ -19,8 +19,8 @@ export function todayAsIsoDate(): string {
  * minDate must be in the format YYYY-MM-DD.
  * An empty value is allowed, so optional fields still work.
  * @export
- * @param {string} minDate
- * @return {*}  {ValidatorFn}
+ * @param {string} minDate - The minimum date in the format YYYY-MM-DD.
+ * @return {ValidatorFn} - The validator function that rejects dates before minDate.
  */
 export function notBeforeDate(minDate: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
