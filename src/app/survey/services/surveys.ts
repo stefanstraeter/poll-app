@@ -1,13 +1,18 @@
-import { inject, signal, Service } from '@angular/core';
+import { computed, inject, signal, Service } from '@angular/core';
 import { Supabase } from '@core/services/supabase';
+import { todayAsIsoDate } from '@shared/validators/date';
 import { Survey } from '../model/interfaces/survey';
 import { Answer, Question } from '../model/interfaces/question';
+import { getEndingSoonSurveys } from '../rules/ending-soon-surveys';
 
 @Service()
 export class Surveys {
   private supabase = inject(Supabase);
   private surveysSignal = signal<Survey[]>([]); // read + write access
   surveys = this.surveysSignal.asReadonly(); // read-only access
+  endingSoonSurveys = computed(() =>
+    getEndingSoonSurveys(this.surveysSignal(), todayAsIsoDate()),
+  );
 
   constructor() {
     this.loadSurveys();
