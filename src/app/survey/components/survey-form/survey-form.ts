@@ -20,6 +20,12 @@ import {
   QuestionFormGroup,
 } from './model/question-form-builder';
 
+/**
+ * @description Shows the form for creating a survey: title, end date, description, category and questions.
+ * Checks the input and passes a finished survey to the parent page.
+ * @export
+ * @class SurveyForm
+ */
 @Component({
   imports: [Button, Dropdown, DeleteIcon, CreateQuestion, ReactiveFormsModule],
   selector: 'app-survey-form',
@@ -49,10 +55,19 @@ export class SurveyForm {
 
   categoryOptions: DropdownOption[] = SURVEY_CATEGORIES;
 
+  /**
+   * @description Adds a new, empty question to the form.
+   * @memberof SurveyForm
+   */
   addQuestion(): void {
     this.surveyForm.controls.questions.push(createQuestionGroup());
   }
 
+  /**
+   * @description Removes the question at this position. The first question cannot be removed, its text is only cleared.
+   * @param {number} questionIndex - The index of the question to remove.
+   * @memberof SurveyForm
+   */
   removeQuestion(questionIndex: number): void {
     if (questionIndex === 0) {
       this.clearFirstQuestion();
@@ -61,22 +76,45 @@ export class SurveyForm {
     }
   }
 
+  /**
+   * @description Empties the text of the first question. The first question must always stay.
+   * @private
+   * @memberof SurveyForm
+   */
   private clearFirstQuestion(): void {
     clearControl(this.surveyForm.controls.questions.at(0).controls.text);
   }
 
+  /**
+   * @description Empties the survey title.
+   * @memberof SurveyForm
+   */
   clearTitle(): void {
     clearControl(this.surveyForm.controls.title);
   }
 
+  /**
+   * @description Empties the description.
+   * @memberof SurveyForm
+   */
   clearDescription(): void {
     clearControl(this.surveyForm.controls.description);
   }
 
+  /**
+   * @description Empties the end date, so the survey has no end date.
+   * @memberof SurveyForm
+   */
   clearDeadline(): void {
     clearControl(this.surveyForm.controls.deadline);
   }
 
+  /**
+   * @description Runs when the user clicks Publish. If the form is invalid, all errors become visible and nothing is sent.
+   * If it is valid, the finished survey is passed to the parent page.
+   * @return {void}
+   * @memberof SurveyForm
+   */
   handleSubmit(): void {
     if (this.surveyForm.invalid) {
       this.surveyForm.markAllAsTouched();
@@ -86,6 +124,12 @@ export class SurveyForm {
     this.submitted.emit(this.buildSurvey());
   }
 
+  /**
+   * @description Turns the form values into a Survey object. The id 0 is a placeholder, the database sets the real id.
+   * @private
+   * @return {Survey} - The finished survey object.
+   * @memberof SurveyForm
+   */
   private buildSurvey(): Survey {
     return {
       id: 0, // id ist ein Platzhalter, die "echte" ID wird von der Datenbank generiert
@@ -99,6 +143,13 @@ export class SurveyForm {
     };
   }
 
+  /**
+   * @description Turns one question from the form into a Question object, including its answers.
+   * @private
+   * @param {QuestionFormGroup} questionGroup - The form group for the question.
+   * @return {Question}
+   * @memberof SurveyForm
+   */
   private buildQuestion(questionGroup: QuestionFormGroup): Question {
     return {
       id: 0,
@@ -110,6 +161,13 @@ export class SurveyForm {
     };
   }
 
+  /**
+   * @description Turns an answer form control into an Answer object.
+   * @private
+   * @param {FormControl<string>} answerControl - The form control for the answer text.
+   * @return {Answer} - The finished answer object.
+   * @memberof SurveyForm
+   */
   private buildAnswer(answerControl: FormControl<string>): Answer {
     return {
       id: 0,
