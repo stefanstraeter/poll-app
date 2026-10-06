@@ -20,11 +20,17 @@ export class SurveyCard {
   variant = input<'highlight' | 'list'>('list');
 
   // Der Text fürs Badge wird aus dem Enddatum berechnet, z. B. "Ends In 2 Months"
-  badgeText = computed(() => this.buildBadgeText(this.getBadgeInfo(this.deadline())));
+  badgeText = computed(() =>
+    this.buildBadgeText(this.getBadgeInfo(this.deadline())),
+  );
 
   /**
-   * Decides which stage the end date is in, and how big the amount is.
+   * @description Decides which stage the end date is in, and how big the amount is.
    * Up to 30 days: shown in days. Longer: shown in months (30 days = 1 month).
+   * @private
+   * @param {(string | null)} deadline - The end date in the format YYYY-MM-DD, or null if there is no end date.
+   * @return {BadgeInfo} - The stage and amount of the badge.
+   * @memberof SurveyCard
    */
   private getBadgeInfo(deadline: string | null): BadgeInfo {
     if (!deadline) {
@@ -47,8 +53,12 @@ export class SurveyCard {
   }
 
   /**
-   * Turns the stage into the text that is shown on the badge.
+   * @description Turns the stage into the text that is shown on the badge.
    * The texts are fixed, so a switch fits here.
+   * @private
+   * @param {BadgeInfo} badgeInfo - The stage and amount of the badge.
+   * @return {string} - The text that is shown on the badge.
+   * @memberof SurveyCard
    */
   private buildBadgeText({ stage, amount }: BadgeInfo): string {
     switch (stage) {
@@ -66,8 +76,12 @@ export class SurveyCard {
   }
 
   /**
-   * Counts the full days from today until the end date.
+   * @description  Counts the full days from today until the end date.
    * Both dates are set to midnight, so only the calendar day counts.
+   * @private
+   * @param {string} deadline - The end date in the format YYYY-MM-DD.
+   * @return {number}  - The number of full days until the end date.
+   * @memberof SurveyCard
    */
   private daysUntil(deadline: string): number {
     const today = new Date();
