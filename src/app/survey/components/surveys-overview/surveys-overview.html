@@ -47,6 +47,8 @@
       [title]="survey.title"
       [deadline]="survey.deadline"
     />
+    } @empty {
+    <p class="surveys-overview__empty">No surveys found for this category.</p>
     }
   </div>
 </section>
