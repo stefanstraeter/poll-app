@@ -61,7 +61,9 @@ export class Surveys {
 
   /**
    * @description Creates a new survey with all its questions and answers
-   * in Supabase, then reloads the list.
+   * in Supabase, then reloads the list. The survey is saved first, since every
+   * question needs its id. Questions (and each question's answers) are then
+   * saved in parallel, since they don't depend on each other.
    * @param {Survey} survey
    * @return {Promise<void>} - Resolves when the survey is saved and the list is reloaded.
    * @memberof Surveys
@@ -69,13 +71,17 @@ export class Surveys {
   async addSurvey(survey: Survey): Promise<void> {
     const surveyId = await this.insertSurvey(survey);
 
-    for (const question of survey.questions) {
-      const questionId = await this.insertQuestion(question, surveyId);
+    await Promise.all(
+      survey.questions.map(async (question) => {
+        const questionId = await this.insertQuestion(question, surveyId);
 
-      for (const answer of question.answers) {
-        await this.insertAnswer(answer, questionId);
-      }
-    }
+        await Promise.all(
+          question.answers.map((answer) =>
+            this.insertAnswer(answer, questionId),
+          ),
+        );
+      }),
+    );
 
     await this.loadSurveys();
   }
