@@ -67,9 +67,8 @@
   }
 
   &__empty {
-    color: v.$color-text-light;
+    color: v.$color-text-transparent;
     text-align: left;
     padding: v.$spacing-lg 0;
-    color: v.$color-text-accent;
   }
 }

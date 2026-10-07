@@ -3,10 +3,14 @@
 // ==========================================================================
 
 // Neutral Scale
+
 $neutral-000: #ffffff;
 $neutral-200: #fefdff;
 $neutral-300: #ededed;
 $neutral-600: #bababa;
+
+// Transparent Scale
+$transparent: #fbf5fe49;
 
 // Orange Scale
 $orange-100: #fee9d4;
@@ -14,6 +18,7 @@ $orange-300: #ffcfa1;
 $orange-500: #ffb770;
 
 // Purple Scale
+
 $purple-100: #fbf5fe;
 $purple-200: #f4e9fb;
 $purple-500: #4f4353;
@@ -35,15 +40,15 @@ $font-family-base: "Mulish", system-ui, sans-serif;
 $font-family-heading: "Nerko One", cursive, sans-serif;
 $font-family-label: "Nokora", sans-serif;
 
-$font-size-xs: 0.75rem; // 12px
-$font-size-sm: 0.875rem; // 14px
-$font-size-md: 1rem; // 16px
-$font-size-lg: 1.25rem; // 20px
-$font-size-xl: 1.75rem; // 28px
-$font-size-2xl: 2.5rem; // 40px
-$font-size-3xl: 3.5rem; // 56px
-$font-size-4xl: 5rem; // 80px
-$font-size-5xl: 6.25rem; // 100px
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.75rem;
+$font-size-2xl: 2.5rem;
+$font-size-3xl: 3.5rem;
+$font-size-4xl: 5rem;
+$font-size-5xl: 6.25rem;
 
 $font-size-hero-title: clamp(3.5rem, 5vw + 1rem, 5.5rem);
 
@@ -56,10 +61,10 @@ $font-weight-extrabold: 900;
 
 $color-text-dark: $purple-900;
 $color-text-light: $purple-100;
+$color-text-transparent: $transparent;
 $color-text-accent: $orange-500;
 $color-text-error: $orange-500;
 $color-heading: $orange-500;
-$color-text-accent: $orange-500;
 
 // ==========================================================================
 // BORDER RADIUS & SHAPES
