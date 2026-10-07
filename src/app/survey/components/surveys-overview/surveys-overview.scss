@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .surveys-overview {
   @include m.flex($direction: column, $gap: v.$spacing-lg);
@@ -64,5 +64,12 @@
     @media (min-width: v.$breakpoint-lg) {
       grid-template-columns: 1fr 1fr;
     }
+  }
+
+  &__empty {
+    color: v.$color-text-light;
+    text-align: left;
+    padding: v.$spacing-lg 0;
+    color: v.$color-text-accent;
   }
 }
