@@ -6,7 +6,7 @@
 }
 
 .create-question {
-  @include m.flex($direction: column, $gap: v.$spacing-xxs);
+  @include m.flex($direction: column, $gap: v.$spacing-xs);
 
   &__header {
     @include m.flex($justify: space-between, $align: center);
