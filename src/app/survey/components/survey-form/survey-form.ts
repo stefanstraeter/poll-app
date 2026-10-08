@@ -11,6 +11,7 @@ import { clearControl } from '@shared/forms/clear-control';
 import { notBeforeDate, todayAsIsoDate } from '@shared/validators/date';
 import { Dropdown, DropdownOption } from '@shared/components/dropdown/dropdown';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
+import { PlusIcon } from '@shared/components/plus-icon/plus-icon';
 import { SURVEY_CATEGORIES } from '@survey/model/constants/survey-categories';
 import { Survey } from '@survey/model/interfaces/survey';
 import { Answer, Question } from '@survey/model/interfaces/question';
@@ -27,7 +28,14 @@ import {
  * @class SurveyForm
  */
 @Component({
-  imports: [Button, Dropdown, DeleteIcon, CreateQuestion, ReactiveFormsModule],
+  imports: [
+    Button,
+    Dropdown,
+    DeleteIcon,
+    PlusIcon,
+    CreateQuestion,
+    ReactiveFormsModule,
+  ],
   selector: 'app-survey-form',
   styleUrl: './survey-form.scss',
   templateUrl: './survey-form.html',
