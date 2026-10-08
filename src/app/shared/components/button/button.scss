@@ -120,4 +120,10 @@
       }
     }
   }
+
+  // Muss nach den Varianten stehen: gleiche Spezifität (eine Klasse),
+  // die später stehende Regel gewinnt und überschreibt das Varianten-Padding.
+  &--sm {
+    padding: v.$btn-padding-xs v.$btn-padding-sm;
+  }
 }
