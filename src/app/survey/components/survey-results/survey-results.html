@@ -1,10 +1,6 @@
 <section class="survey-results">
-  <div class="survey-results__header">
-    <h2 class="survey-results__headline">
-      Survey results <span class="survey-results__live">LIVE</span>
-    </h2>
+  <div class="survey-results__toggle">
     <app-disclosure-button
-      class="survey-results__toggle"
       color="dark"
       [isOpen]="isOpen()"
       (toggled)="toggleOpen()"
@@ -15,6 +11,10 @@
 
   @if (isOpen()) {
   <div class="survey-results__body">
+    <h2 class="survey-results__headline">
+      Survey results <span class="survey-results__live">LIVE</span>
+    </h2>
+
     @if (hasVotes()) {
       @for (question of survey().questions; track question.id; let questionIndex = $index) {
       <div class="survey-results__question">
