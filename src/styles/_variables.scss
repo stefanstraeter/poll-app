@@ -138,6 +138,13 @@ $bg-dark: $purple-900;
 $bg-neutral: $neutral-000;
 $bg-overlay: $black-000;
 
+// Cards
+$card-dark-bg: $purple-600;
+$card-dark-hover: $purple-500;
+$card-light-bg: $purple-100;
+$card-light-hover: $purple-200;
+$card-medium-bg: $purple-200;
+
 // Primary Button
 $btn-primary-bg: $orange-300;
 $btn-primary-bg-hover: $orange-500;
@@ -183,12 +190,6 @@ $checkbox-bg: transparent;
 $checkbox-border: $neutral-000;
 $checkbox-bg-hover: $orange-100;
 $checkbox-bg-checked: $orange-500;
-
-// Cards
-$card-dark-bg: $purple-600;
-$card-dark-hover: $purple-500;
-$card-light-bg: $purple-100;
-$card-light-hover: $purple-200;
 
 // Input Fields
 $input-bg: $neutral-000;
