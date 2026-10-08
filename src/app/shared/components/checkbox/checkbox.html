@@ -2,6 +2,7 @@
   type="button"
   class="checkbox"
   [class.checkbox--checked]="checked()"
+  [class.checkbox--dark]="borderColor() === 'dark'"
   (click)="onToggle()"
   role="checkbox"
   [attr.aria-checked]="checked()"
@@ -16,8 +17,3 @@
 
   }
 </button>
-
-<!-- 
-<app-checkbox [checked]="isSelected" (toggled)="onAnswerToggle($event)" />
-<app-checkbox [checked]="isChecked()" (toggled)="onToggle($event)" />
--->
