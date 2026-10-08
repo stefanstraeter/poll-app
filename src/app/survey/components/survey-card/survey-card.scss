@@ -1,8 +1,12 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .survey-card {
-  @include m.flex($direction: column, $justify: space-between, $gap: v.$spacing-xs);
+  @include m.flex(
+    $direction: column,
+    $justify: space-between,
+    $gap: v.$spacing-xs
+  );
   padding: v.$spacing-md;
   transition: background-color 0.2s ease;
   cursor: pointer;
