@@ -136,10 +136,3 @@
     animation-delay: 1s;
   }
 }
-
-// Warum cta überhaupt in home.scss statt button.scss
-
-// Das <img> wird über <ng-content> von home.html in die Button-Komponente projiziert.
-// Angular gibt projizierten Elementen aber das View-Encapsulation-Scope der Komponente,
-// in der sie ursprünglich stehen (home), nicht der aufnehmenden Komponente (button).
-// Styling in button.scss hätte das <img> also nie erreicht – deswegen musste die Logik nach home.scss, genauer in den &__cta-Block.
