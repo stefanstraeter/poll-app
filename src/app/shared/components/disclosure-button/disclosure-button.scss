@@ -6,16 +6,15 @@
 }
 
 .disclosure-button {
-  @include m.flex(
-    $align: center,
-    $justify: space-between,
-    $gap: v.$spacing-xs
-  );
+  @include m.flex($align: center, $justify: space-between, $gap: v.$spacing-xs);
   background: none;
   border: none;
   width: 100%;
   cursor: pointer;
   color: v.$btn-dropdown-text;
+  padding: 0;
+  font-size: v.$font-size-md;
+  font-weight: v.$font-weight-bold;
 
   &--dark {
     color: v.$color-text-dark;
