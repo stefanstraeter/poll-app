@@ -1,1 +1,5 @@
-<p>answer-option works!</p>
+<div class="answer-option">
+  <app-checkbox [checked]="selected()" (toggled)="toggled.emit()" />
+  <span class="answer-option__letter">{{ answerLetter() }}.</span>
+  <span class="answer-option__text">{{ text() }}</span>
+</div>
