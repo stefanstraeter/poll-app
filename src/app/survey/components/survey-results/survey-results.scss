@@ -10,22 +10,21 @@
   border-radius: v.$card-asymmetric-radius;
   padding: v.$spacing-lg v.$spacing-md;
 
-  &__header {
-    @include m.flex($justify: space-between, $align: center);
+  &__toggle {
+    @media (min-width: v.$breakpoint-lg) {
+      display: none;
+    }
   }
 
   &__headline {
     font-family: v.$font-family-heading;
-    color: v.$color-heading;
-    font-size: v.$font-size-lg;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-xl;
   }
 
   &__live {
     color: v.$color-text-accent;
-  }
-
-  &__toggle {
-    font-size: v.$font-size-sm;
+    text-transform: uppercase;
   }
 
   &__body {
