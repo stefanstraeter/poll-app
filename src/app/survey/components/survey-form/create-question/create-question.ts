@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Button } from '@shared/components/button/button';
 import { Checkbox } from '@shared/components/checkbox/checkbox';
 import { DeleteIcon } from '@shared/components/delete-icon/delete-icon';
+import { PlusIcon } from '@shared/components/plus-icon/plus-icon';
 import { clearControl } from '@shared/forms/clear-control';
 import {
   createAnswerControl,
@@ -21,7 +22,14 @@ const MIN_ANSWERS = 2;
  * @class CreateQuestion
  */
 @Component({
-  imports: [ReactiveFormsModule, Button, Checkbox, DeleteIcon, CreateAnswer],
+  imports: [
+    ReactiveFormsModule,
+    Button,
+    Checkbox,
+    DeleteIcon,
+    PlusIcon,
+    CreateAnswer,
+  ],
   selector: 'app-create-question',
   styleUrl: './create-question.scss',
   templateUrl: './create-question.html',

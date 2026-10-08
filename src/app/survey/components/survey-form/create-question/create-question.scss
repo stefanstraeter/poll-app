@@ -51,11 +51,6 @@
     @include m.flex($direction: column, $gap: v.$spacing-xxs);
   }
 
-  &__add-answer {
-    svg {
-      width: 1rem;
-    }
-  }
 }
 
 .input-field {
