@@ -34,7 +34,6 @@
     );
 
     background-color: transparent;
-    color: v.$btn-dropdown-text;
     padding: v.$btn-padding-xxs 0;
     border: none;
     border-radius: v.$btn-border-radius-sm;
@@ -49,23 +48,7 @@
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         background-color: v.$btn-dropdown-bg-hover;
-
-        .dropdown__chevron {
-          color: v.$btn-dropdown-text-accent;
-        }
       }
-    }
-  }
-
-  &__chevron {
-    width: 1.4rem;
-    height: 1.4rem;
-    flex-shrink: 0;
-    align-self: center;
-    transition: color 0.2s ease;
-
-    &--open {
-      color: v.$btn-dropdown-text-accent;
     }
   }
 

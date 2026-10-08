@@ -1,17 +1,12 @@
 <div class="dropdown">
   <div class="dropdown__control">
-    <button type="button" class="dropdown__header" (click)="toggleOpen()">
+    <app-disclosure-button
+      class="dropdown__header"
+      [isOpen]="isOpen()"
+      (toggled)="toggleOpen()"
+    >
       {{ label() }}
-      <svg
-        class="dropdown__chevron"
-        [class.dropdown__chevron--open]="isOpen()"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path [attr.d]="isOpen() ? chevronUpPath : chevronDownPath" fill="currentColor" />
-      </svg>
-    </button>
+    </app-disclosure-button>
 
     @if (isOpen()) {
     <button
