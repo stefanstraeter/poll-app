@@ -2,6 +2,7 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { StatusBadge } from '@shared/components/status-badge/status-badge';
 import { Button } from '@shared/components/button/button';
+import { CloseIcon } from '@shared/components/close-icon/close-icon';
 import { Theme } from '@core/services/theme';
 import { Notifications } from '@core/services/notifications';
 import { Survey } from '@survey/model/interfaces/survey';
@@ -12,7 +13,7 @@ const NAVIGATE_DELAY_MS = 1500;
 const ERROR_NOTIFICATION_DURATION_MS = 5000;
 
 @Component({
-  imports: [StatusBadge, Button, SurveyForm, RouterLink],
+  imports: [StatusBadge, Button, CloseIcon, SurveyForm, RouterLink],
   selector: 'app-create-survey',
   styleUrl: './create-survey.scss',
   templateUrl: './create-survey.html',
