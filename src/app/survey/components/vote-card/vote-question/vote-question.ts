@@ -55,11 +55,13 @@ export class VoteQuestion {
    * @memberof VoteQuestion
    */
   private toggleMultiple(answerId: number): void {
-    this.selectedAnswerIds.update((ids) =>
-      ids.includes(answerId)
-        ? ids.filter((id) => id !== answerId)
-        : [...ids, answerId],
-    );
+    this.selectedAnswerIds.update((ids) => {
+      if (ids.includes(answerId)) {
+        return ids.filter((id) => id !== answerId);
+      } else {
+        return [...ids, answerId];
+      }
+    });
   }
 
   /**
