@@ -1,0 +1,11 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:host {
+  display: block;
+}
+
+.survey-detail {
+  @include m.flex($direction: column, $gap: v.$spacing-xl);
+  padding: v.$spacing-md;
+}
