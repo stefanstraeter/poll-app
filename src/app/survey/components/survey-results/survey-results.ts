@@ -1,6 +1,7 @@
 import { Component, input, signal } from '@angular/core';
 import { Survey } from '@survey/model/interfaces/survey';
 import { Question, Answer } from '@survey/model/interfaces/question';
+import { DisclosureButton } from '@shared/components/disclosure-button/disclosure-button';
 import { AnswerResult } from './answer-result/answer-result';
 
 /**
@@ -12,7 +13,7 @@ import { AnswerResult } from './answer-result/answer-result';
  * @class SurveyResults
  */
 @Component({
-  imports: [AnswerResult],
+  imports: [DisclosureButton, AnswerResult],
   selector: 'app-survey-results',
   styleUrl: './survey-results.scss',
   templateUrl: './survey-results.html',

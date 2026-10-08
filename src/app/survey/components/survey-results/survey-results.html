@@ -3,13 +3,14 @@
     <h2 class="survey-results__headline">
       Survey results <span class="survey-results__live">LIVE</span>
     </h2>
-    <button
-      type="button"
+    <app-disclosure-button
       class="survey-results__toggle"
-      (click)="toggleOpen()"
+      color="dark"
+      [isOpen]="isOpen()"
+      (toggled)="toggleOpen()"
     >
-      @if (isOpen()) { Close results ▲ } @else { Show results ▼ }
-    </button>
+      @if (isOpen()) { Close results } @else { Show results }
+    </app-disclosure-button>
   </div>
 
   @if (isOpen()) {
