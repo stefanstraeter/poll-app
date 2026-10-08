@@ -27,10 +27,10 @@ export class SurveyDetail implements OnInit, OnDestroy {
         text: 'Which date would work best for you?',
         multiple: true,
         answers: [
-          { id: 1, text: '19.09.2025, Friday', votes: 0 },
-          { id: 2, text: '10.10.2025, Friday', votes: 0 },
-          { id: 3, text: '11.10.2025, Saturday', votes: 0 },
-          { id: 4, text: '31.10.2025, Friday', votes: 0 },
+          { id: 1, text: '19.09.2025, Friday', votes: 5 },
+          { id: 2, text: '10.10.2025, Friday', votes: 1 },
+          { id: 3, text: '11.10.2025, Saturday', votes: 4 },
+          { id: 4, text: '31.10.2025, Friday', votes: 7 },
         ],
       },
       {
