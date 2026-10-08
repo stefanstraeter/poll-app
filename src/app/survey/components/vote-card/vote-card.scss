@@ -25,7 +25,7 @@
 
   &__meta {
     @include m.flex($justify: space-between, $align: center);
-    font-size: v.$font-size-xs;
+    font-size: v.$font-size-sm;
     color: v.$color-text-dark;
   }
 
