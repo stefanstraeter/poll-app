@@ -14,4 +14,11 @@
     grid-template-columns: 2fr 1fr;
     align-items: start;
   }
+
+  &__loading {
+    padding: v.$spacing-xl v.$spacing-md;
+    color: v.$color-text-dark;
+    font-size: v.$font-size-md;
+    text-align: center;
+  }
 }
