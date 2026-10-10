@@ -1,4 +1,10 @@
+@if (isLoading()) {
+<p class="survey-detail__loading">Loading…</p>
+} @else if (survey(); as loadedSurvey) {
 <section class="survey-detail">
-  <app-vote-card [survey]="survey" />
-  <app-survey-results [survey]="survey" />
+  <app-vote-card [survey]="loadedSurvey" />
+  <app-survey-results [survey]="loadedSurvey" />
 </section>
+} @else {
+<app-not-found message="Survey not found." />
+}
