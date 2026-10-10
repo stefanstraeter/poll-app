@@ -43,6 +43,11 @@
 
   &__questions {
     @include m.flex($direction: column, $gap: v.$spacing-lg);
+
+    @media (min-width: v.$breakpoint-lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__complete {
