@@ -1,6 +1,11 @@
 @use 'variables' as v;
 @use 'mixins' as m;
 
+:host {
+  display: block;
+  flex: 1;
+}
+
 .progress-bar-wrapper {
   @include m.flex($align: center, $gap: v.$spacing-sm);
 }
