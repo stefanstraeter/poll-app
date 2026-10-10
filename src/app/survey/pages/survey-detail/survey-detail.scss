@@ -8,4 +8,10 @@
 .survey-detail {
   @include m.flex($direction: column, $gap: v.$spacing-xl);
   padding: v.$spacing-md;
+
+  @media (min-width: v.$breakpoint-lg) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
 }
