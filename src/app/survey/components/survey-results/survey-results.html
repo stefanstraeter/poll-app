@@ -9,8 +9,10 @@
     </app-disclosure-button>
   </div>
 
-  @if (isOpen()) {
-  <div class="survey-results__body">
+  <div
+    class="survey-results__body"
+    [class.survey-results__body--closed]="!isOpen()"
+  >
     <h2 class="survey-results__headline">
       Survey results <span class="survey-results__live">LIVE</span>
     </h2>
@@ -37,5 +39,4 @@
     <p class="survey-results__empty">There are no answers yet.</p>
     }
   </div>
-  }
 </section>

@@ -29,6 +29,14 @@
 
   &__body {
     @include m.flex($direction: column, $gap: v.$spacing-lg);
+
+    &--closed {
+      display: none;
+
+      @media (min-width: v.$breakpoint-lg) {
+        display: flex;
+      }
+    }
   }
 
   &__question {
